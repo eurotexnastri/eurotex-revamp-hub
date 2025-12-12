@@ -1,40 +1,69 @@
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
+import webbings1 from '@/assets/home/webbings-1.jpg';
+import webbings2 from '@/assets/home/webbings-2.jpg';
+import webbings3 from '@/assets/home/webbings-3.jpg';
+import webbings4 from '@/assets/home/webbings-4.jpg';
+
+const heroImages = [webbings1, webbings2, webbings3, webbings4];
 
 export default function Index() {
   return (
     <>
       <Helmet>
-        <title>Eurotex Nastri - Premium Textile Webbings & Tapes Manufacturer</title>
+        <title>Eurotex - Technical Webbing | 100% Made in Italy Since 1974</title>
         <meta
           name="description"
-          content="Eurotex SRL specializes in manufacturing high-quality textile webbings, tapes, and narrow fabrics for industrial, fashion, safety, and technical applications. Based in Vedano al Lambro, Italy."
+          content="Eurotex SRL - Technical webbing manufacturer. 100% Made in Italy. Expertise and technology since 1974. Premium textile webbings for industrial, fashion, safety, and technical applications."
         />
         <meta
           name="keywords"
-          content="textile webbings, narrow fabrics, industrial tapes, fashion webbings, safety belts, lifting straps, Italian manufacturer"
+          content="technical webbing, textile webbings, narrow fabrics, industrial tapes, fashion webbings, safety belts, lifting straps, Italian manufacturer, made in Italy"
         />
         <link rel="canonical" href="https://www.eurotexnastri.it" />
       </Helmet>
 
       {/* Hero Section */}
-      <section className="min-h-[80vh] flex items-center justify-center relative">
-        <div className="section-container text-center">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight text-foreground mb-6 animate-slide-up">
-            Premium Textile Webbings
-          </h1>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 animate-slide-up" style={{ animationDelay: '100ms' }}>
-            Crafting excellence in narrow fabrics since 1985. Italian quality for global industries.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-slide-up" style={{ animationDelay: '200ms' }}>
-            <Link to="/sectors" className="btn-primary">
-              Explore Our Products
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
-            <Link to="/contact" className="btn-outline">
-              Get in Touch
-            </Link>
+      <section className="min-h-[85vh] flex items-center justify-center relative py-20">
+        <div className="section-container">
+          <div className="text-center mb-16">
+            <p className="text-sm tracking-[0.3em] uppercase text-muted-foreground mb-4 animate-fade-in">
+              100% Made in Italy
+            </p>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight text-foreground mb-6 animate-slide-up">
+              Technical Webbing
+            </h1>
+            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 animate-slide-up" style={{ animationDelay: '100ms' }}>
+              Expertise and Technology Since 1974
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-slide-up" style={{ animationDelay: '200ms' }}>
+              <Link to="/sectors" className="btn-primary">
+                Explore Products
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+              <Link to="/contact" className="btn-outline">
+                Get in Touch
+              </Link>
+            </div>
+          </div>
+
+          {/* Hero Images Grid */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto">
+            {heroImages.map((image, index) => (
+              <div
+                key={index}
+                className="overflow-hidden rounded-sm shadow-card animate-fade-in"
+                style={{ animationDelay: `${300 + index * 100}ms` }}
+              >
+                <img
+                  src={image}
+                  alt={`Eurotex technical webbing sample ${index + 1}`}
+                  className="w-full aspect-[4/3] object-cover hover:scale-105 transition-transform duration-700"
+                  loading="lazy"
+                />
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -44,10 +73,10 @@ export default function Index() {
         <div className="section-container">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="section-title mb-6">
-              Over 35 Years of Excellence
+              Over 50 Years of Excellence
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Eurotex SRL is a leading Italian manufacturer of high-quality textile webbings and narrow fabrics. 
+              Since 1974, Eurotex has been a leading Italian manufacturer of high-quality technical webbings and narrow fabrics. 
               Our products serve diverse industries including automotive, fashion, medical, military, and sports. 
               With state-of-the-art machinery and rigorous quality control, we deliver solutions that meet the 
               most demanding specifications.
@@ -66,14 +95,14 @@ export default function Index() {
             </p>
           </div>
           
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
-            {['Fashion', 'Industrial', 'Medical', 'Sports'].map((sector, index) => (
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">
+            {['Fashion', 'Industrial', 'Medical', 'Military', 'Sports'].map((sector, index) => (
               <div
                 key={sector}
                 className="bg-card p-6 text-center rounded-sm shadow-subtle animate-fade-in"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <h3 className="font-medium text-foreground">{sector}</h3>
+                <h3 className="font-medium text-foreground text-sm">{sector}</h3>
               </div>
             ))}
           </div>

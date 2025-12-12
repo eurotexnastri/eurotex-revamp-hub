@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
+import logo from '@/assets/logo.png';
 
 const navItems = [
   { name: 'Home', href: '/' },
@@ -25,9 +26,11 @@ export function Header() {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center">
-            <span className="text-2xl md:text-3xl font-light tracking-[0.2em] text-foreground uppercase">
-              Eurotex
-            </span>
+            <img 
+              src={logo} 
+              alt="Eurotex" 
+              className="h-6 md:h-8 w-auto"
+            />
           </Link>
 
           {/* Desktop Navigation */}
