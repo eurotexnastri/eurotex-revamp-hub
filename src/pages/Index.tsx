@@ -220,7 +220,7 @@ export default function Index() {
           </div>
           
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">
-            {['Fashion', 'Industrial', 'Medical', 'Military', 'Sports'].map((sector, index) => (
+            {['Personal Protection', 'Sport and Outdoor', 'Furniture', 'Military', 'Industrial'].map((sector, index) => (
               <div
                 key={sector}
                 className="bg-card p-6 text-center rounded-sm shadow-subtle animate-fade-in"
