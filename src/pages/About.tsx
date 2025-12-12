@@ -101,7 +101,7 @@ export default function About() {
       </section>
 
       {/* Content */}
-      <section className="py-12 md:py-20">
+      <section className="pt-4 pb-12 md:pt-6 md:pb-20">
         <div className="section-container">
           <div className="grid md:grid-cols-2 gap-12 md:gap-20">
             <div className="space-y-6">
