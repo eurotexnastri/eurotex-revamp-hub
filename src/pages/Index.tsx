@@ -7,6 +7,11 @@ import webbings1 from '@/assets/home/webbings-1.jpg';
 import webbings2 from '@/assets/home/webbings-2.jpg';
 import webbings3 from '@/assets/home/webbings-3.jpg';
 import webbings4 from '@/assets/home/webbings-4.jpg';
+import factory1 from '@/assets/home/factory-1.jpg';
+import factory2 from '@/assets/home/factory-2.jpg';
+import factory3 from '@/assets/home/factory-3.jpg';
+import factory4 from '@/assets/home/factory-4.jpg';
+import factory5 from '@/assets/home/factory-5.jpg';
 
 const heroImages = [
   { src: webbings1, alt: 'Colorful industrial webbings in blue, black, red, grey and yellow' },
@@ -15,21 +20,36 @@ const heroImages = [
   { src: webbings4, alt: 'Neutral tone webbings in grey, white and brown' },
 ];
 
+const factoryImages = [
+  { src: factory1, alt: 'Eurotex weaving factory floor with industrial looms' },
+  { src: factory2, alt: 'Precision weaving machinery in operation' },
+  { src: factory3, alt: 'Thread spools and weaving equipment' },
+  { src: factory4, alt: 'Eurotex facility exterior' },
+  { src: factory5, alt: 'Eurotex modern building facade' },
+];
+
 export default function Index() {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
   const [selectedIndex, setSelectedIndex] = useState(0);
+  
+  const [factoryEmblaRef, factoryEmblaApi] = useEmblaCarousel({ loop: true });
+  const [factorySelectedIndex, setFactorySelectedIndex] = useState(0);
 
   const onSelect = useCallback(() => {
     if (!emblaApi) return;
     setSelectedIndex(emblaApi.selectedScrollSnap());
   }, [emblaApi]);
 
+  const onFactorySelect = useCallback(() => {
+    if (!factoryEmblaApi) return;
+    setFactorySelectedIndex(factoryEmblaApi.selectedScrollSnap());
+  }, [factoryEmblaApi]);
+
   useEffect(() => {
     if (!emblaApi) return;
     onSelect();
     emblaApi.on('select', onSelect);
     
-    // Auto-play every 4 seconds
     const autoplay = setInterval(() => {
       emblaApi.scrollNext();
     }, 4000);
@@ -40,9 +60,28 @@ export default function Index() {
     };
   }, [emblaApi, onSelect]);
 
+  useEffect(() => {
+    if (!factoryEmblaApi) return;
+    onFactorySelect();
+    factoryEmblaApi.on('select', onFactorySelect);
+    
+    const autoplay = setInterval(() => {
+      factoryEmblaApi.scrollNext();
+    }, 4000);
+
+    return () => {
+      factoryEmblaApi.off('select', onFactorySelect);
+      clearInterval(autoplay);
+    };
+  }, [factoryEmblaApi, onFactorySelect]);
+
   const scrollTo = useCallback((index: number) => {
     if (emblaApi) emblaApi.scrollTo(index);
   }, [emblaApi]);
+
+  const scrollFactoryTo = useCallback((index: number) => {
+    if (factoryEmblaApi) factoryEmblaApi.scrollTo(index);
+  }, [factoryEmblaApi]);
 
   return (
     <>
@@ -123,9 +162,43 @@ export default function Index() {
       <section className="py-20 md:py-32">
         <div className="section-container">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="section-title mb-6">
+            <h2 className="section-title mb-10">
               Over 50 Years of Excellence
             </h2>
+
+            {/* Factory Carousel */}
+            <div className="mb-10">
+              <div className="overflow-hidden rounded-sm shadow-card" ref={factoryEmblaRef}>
+                <div className="flex">
+                  {factoryImages.map((image, index) => (
+                    <div key={index} className="flex-[0_0_100%] min-w-0">
+                      <img
+                        src={image.src}
+                        alt={image.alt}
+                        className="w-full aspect-[21/9] object-cover"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+              
+              {/* Carousel Dots */}
+              <div className="flex justify-center gap-2 mt-4">
+                {factoryImages.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => scrollFactoryTo(index)}
+                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                      index === factorySelectedIndex 
+                        ? 'bg-foreground w-6' 
+                        : 'bg-foreground/30 hover:bg-foreground/50'
+                    }`}
+                    aria-label={`Go to factory slide ${index + 1}`}
+                  />
+                ))}
+              </div>
+            </div>
+
             <p className="text-lg text-muted-foreground leading-relaxed">
               Since 1974, Eurotex has been a leading Italian manufacturer of high-quality technical webbings and narrow fabrics. 
               Our products serve diverse industries including automotive, fashion, medical, military, and sports. 
