@@ -16,6 +16,15 @@ import apparelWeb4 from '@/assets/webs/apparel-fashion-4.jpg';
 import apparelWeb5 from '@/assets/webs/apparel-fashion-5.jpg';
 import apparelWeb6 from '@/assets/webs/apparel-fashion-6.jpg';
 
+// Early Childhood webs
+import earlyWeb1 from '@/assets/webs/early-childhood-1.jpg';
+import earlyWeb2 from '@/assets/webs/early-childhood-2.jpg';
+import earlyWeb3 from '@/assets/webs/early-childhood-3.jpg';
+import earlyWeb4 from '@/assets/webs/early-childhood-4.jpg';
+import earlyWeb5 from '@/assets/webs/early-childhood-5.jpg';
+import earlyWeb6 from '@/assets/webs/early-childhood-6.jpg';
+import earlyWeb7 from '@/assets/webs/early-childhood-7.jpg';
+
 export interface Sector {
   id: string;
   slug: string;
@@ -66,7 +75,15 @@ export const sectors: Sector[] = [
     applicationsImage: earlyChildhood,
     description: 'Safe and comfortable webbings for baby products and child safety.',
     applications: [],
-    webbings: [],
+    webbings: [
+      { title: 'Web 1', image: earlyWeb1 },
+      { title: 'Web 2', image: earlyWeb2 },
+      { title: 'Web 3', image: earlyWeb3 },
+      { title: 'Web 4', image: earlyWeb4 },
+      { title: 'Web 5', image: earlyWeb5 },
+      { title: 'Web 6', image: earlyWeb6 },
+      { title: 'Web 7', image: earlyWeb7 },
+    ],
   },
   {
     id: '3',
