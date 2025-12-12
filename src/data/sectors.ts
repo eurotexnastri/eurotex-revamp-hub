@@ -8,6 +8,16 @@ import personalProtection from '@/assets/sectors/personal-protection.png';
 import safetyBelts from '@/assets/sectors/safety-belts.png';
 import sportOutdoor from '@/assets/sectors/sport-outdoor.png';
 
+// Sector card images
+import earlyChildhoodCard from '@/assets/sectors/early-childhood.jpg';
+import furnitureCard from '@/assets/sectors/furniture.jpg';
+import industrialCard from '@/assets/sectors/industrial-lifting-transport.jpg';
+import medicalCard from '@/assets/sectors/medical-orthopedics.jpg';
+import militaryCard from '@/assets/sectors/military.jpg';
+import personalProtectionCard from '@/assets/sectors/personal-protection.jpg';
+import safetyBeltsCard from '@/assets/sectors/safety-belts.jpg';
+import sportOutdoorCard from '@/assets/sectors/sport-outdoor.jpg';
+
 // Apparel & Fashion webs
 import apparelWeb1 from '@/assets/webs/apparel-fashion-1.jpg';
 import apparelWeb2 from '@/assets/webs/apparel-fashion-2.jpg';
@@ -103,8 +113,6 @@ export interface Sector {
   }[];
 }
 
-// Placeholder for square sector card images - will be replaced later
-const placeholderImage = 'https://images.unsplash.com/photo-1558171813-4c088753af8f?w=600&h=600&fit=crop';
 
 export const sectors: Sector[] = [
   {
@@ -112,7 +120,7 @@ export const sectors: Sector[] = [
     slug: 'apparel-fashion',
     title: 'Apparel & Fashion',
     titleIt: 'Abbigliamento e Moda',
-    image: placeholderImage,
+    image: apparelFashion,
     applicationsImage: apparelFashion,
     description: 'Stylish webbings for fashion accessories, bags, and apparel.',
     descriptionIt: 'Nastri eleganti per accessori moda, borse e abbigliamento.',
@@ -133,7 +141,7 @@ export const sectors: Sector[] = [
     slug: 'early-childhood',
     title: 'Early Childhood',
     titleIt: 'Prima Infanzia',
-    image: placeholderImage,
+    image: earlyChildhoodCard,
     applicationsImage: earlyChildhood,
     description: 'Safe and comfortable webbings for baby products and child safety.',
     descriptionIt: 'Nastri sicuri e confortevoli per prodotti per bambini e sicurezza infantile.',
@@ -155,7 +163,7 @@ export const sectors: Sector[] = [
     slug: 'furniture',
     title: 'Furniture',
     titleIt: 'Arredamento',
-    image: placeholderImage,
+    image: furnitureCard,
     applicationsImage: furniture,
     description: 'Decorative and functional webbings for furniture and home decor.',
     descriptionIt: 'Nastri decorativi e funzionali per arredamento e complementi d\'arredo.',
@@ -174,7 +182,7 @@ export const sectors: Sector[] = [
     slug: 'industrial-lifting-transport',
     title: 'Industrial, Lifting & Transport',
     titleIt: 'Industriale, Sollevamento e Trasporto',
-    image: placeholderImage,
+    image: industrialCard,
     applicationsImage: industrialLifting,
     description: 'Heavy-duty webbings for lifting, lashing, and industrial applications.',
     descriptionIt: 'Nastri resistenti per sollevamento, ancoraggio e applicazioni industriali.',
@@ -194,7 +202,7 @@ export const sectors: Sector[] = [
     slug: 'medical-orthopedics',
     title: 'Medical & Orthopedics',
     titleIt: 'Medicale e Ortopedico',
-    image: placeholderImage,
+    image: medicalCard,
     applicationsImage: medicalOrthopedics,
     description: 'Specialized webbings for medical devices and orthopedic supports.',
     descriptionIt: 'Nastri specializzati per dispositivi medici e supporti ortopedici.',
@@ -214,7 +222,7 @@ export const sectors: Sector[] = [
     slug: 'military',
     title: 'Military',
     titleIt: 'Militare',
-    image: placeholderImage,
+    image: militaryCard,
     applicationsImage: military,
     description: 'Durable webbings for military equipment and tactical gear.',
     descriptionIt: 'Nastri resistenti per equipaggiamento militare e attrezzature tattiche.',
@@ -235,7 +243,7 @@ export const sectors: Sector[] = [
     slug: 'personal-protection',
     title: 'Personal Protection',
     titleIt: 'Protezione Individuale',
-    image: placeholderImage,
+    image: personalProtectionCard,
     applicationsImage: personalProtection,
     description: 'Safety webbings for personal protective equipment.',
     descriptionIt: 'Nastri di sicurezza per dispositivi di protezione individuale.',
@@ -258,7 +266,7 @@ export const sectors: Sector[] = [
     slug: 'safety-belts',
     title: 'Safety Belts',
     titleIt: 'Cinture di Sicurezza',
-    image: placeholderImage,
+    image: safetyBeltsCard,
     applicationsImage: safetyBelts,
     description: 'High-quality webbings for safety belt systems.',
     descriptionIt: 'Nastri di alta qualità per sistemi di cinture di sicurezza.',
@@ -279,7 +287,7 @@ export const sectors: Sector[] = [
     slug: 'sport-outdoor',
     title: 'Sport & Outdoor',
     titleIt: 'Sport e Outdoor',
-    image: placeholderImage,
+    image: sportOutdoorCard,
     applicationsImage: sportOutdoor,
     description: 'Performance webbings for sports equipment and outdoor gear.',
     descriptionIt: 'Nastri ad alte prestazioni per attrezzature sportive e outdoor.',
