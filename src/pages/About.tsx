@@ -111,18 +111,27 @@ export default function About() {
                 of textile webbings and narrow fabrics. Mr. Crippa Gian Claudio, after gaining years of 
                 experience in a traditional textile company, decided to follow his own path and founded 
                 EUROTEX—a strongly family-oriented company specializing in the production of woven tapes 
-                for various technical sectors.
+                for various technical sectors. He did so with the clear idea that only a young, modern, 
+                and flexible company could remain competitive over time.
               </p>
               <p className="text-muted-foreground leading-relaxed">
                 EUROTEX's vision proved successful: the company grew, and the second generation of the 
-                Crippa family began to take an active role. Toward the end of the 1980s, a dyeing and 
-                finishing line for woven tapes was introduced, expanding and improving the range of 
-                products offered. In 1992, the company moved to the modern facility where it still 
-                operates today.
+                Crippa family began to take an active role—both practical and managerial—with the entry 
+                of the two sons. Toward the end of the 1980s, a dyeing and finishing line for woven tapes 
+                was introduced, expanding and improving the range of products offered. In 1992, the company, 
+                now well established, moved to the modern facility where it still operates today.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                Our commitment to quality has earned us certifications and partnerships with major 
-                brands across personal protection, furniture, military, and industrial sectors worldwide.
+                The constant belief that technology, professionalism, experience, and special attention 
+                to market dynamics—as well as to customer needs—were the winning tools has made EUROTEX 
+                a well-known and valued company for the production of high-quality products and a reliable 
+                partner for its clients.
+              </p>
+              <p className="text-muted-foreground leading-relaxed">
+                Thanks to our strengths, we are able to provide quick responses and fast deliveries to 
+                meet any need, even in the creation of new and exclusive products. Our commitment to 
+                quality has earned us certifications and partnerships with major brands across personal 
+                protection, furniture, military, and industrial sectors worldwide.
               </p>
             </div>
             
@@ -152,9 +161,8 @@ export default function About() {
                     { title: 'Technology', desc: 'Technologically advanced machinery and equipment' },
                     { title: 'Personnel', desc: 'Qualified and experienced team' },
                     { title: 'Facility', desc: 'Over 3,000 m² of covered production space' },
-                    { title: 'Stock', desc: 'Large quantities and variety of raw materials available' },
-                    { title: 'In-house Finishing', desc: 'Complete dyeing and finishing capabilities on-site' },
                     { title: 'Certification', desc: 'ISO-certified quality management system' },
+                    { title: '100% Made in Italy', desc: 'All products designed and manufactured entirely in Italy' },
                   ].map((item) => (
                     <li key={item.title} className="border-l-2 border-foreground/20 pl-4">
                       <h3 className="font-medium text-foreground">{item.title}</h3>
@@ -168,32 +176,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="py-20 bg-secondary/30">
-        <div className="section-container">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            {[
-              { number: '50+', label: 'Years Experience' },
-              { number: '500+', label: 'Products' },
-              { number: '20+', label: 'Countries Served' },
-              { number: '100%', label: 'Made in Italy' },
-            ].map((stat, index) => (
-              <div
-                key={stat.label}
-                className="animate-fade-in"
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                <div className="text-3xl md:text-4xl font-light text-foreground mb-2">
-                  {stat.number}
-                </div>
-                <div className="text-sm text-muted-foreground uppercase tracking-wide">
-                  {stat.label}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
     </>
   );
 }
