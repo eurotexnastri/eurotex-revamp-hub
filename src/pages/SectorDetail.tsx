@@ -24,6 +24,7 @@ export default function SectorDetail() {
   }
 
   const sectorTitle = language === 'it' ? sector.titleIt : sector.title;
+  const sectorDescription = language === 'it' ? sector.descriptionIt : sector.description;
 
   return (
     <>
@@ -31,7 +32,7 @@ export default function SectorDetail() {
         <title>{sectorTitle} - Eurotex Nastri | {language === 'it' ? 'Nastri e Applicazioni' : 'Webbings & Applications'}</title>
         <meta
           name="description"
-          content={`${sector.description} ${language === 'it' ? 'Nastri tessili italiani di alta qualità per applicazioni' : 'High-quality Italian textile webbings for'} ${sectorTitle.toLowerCase()}.`}
+          content={`${sectorDescription} ${language === 'it' ? 'Nastri tessili italiani di alta qualità per applicazioni' : 'High-quality Italian textile webbings for'} ${sectorTitle.toLowerCase()}.`}
         />
       </Helmet>
 
@@ -51,7 +52,7 @@ export default function SectorDetail() {
               {sectorTitle}
             </h1>
             <p className="text-xl text-muted-foreground animate-slide-up" style={{ animationDelay: '100ms' }}>
-              {sector.description}
+              {sectorDescription}
             </p>
           </div>
         </div>
