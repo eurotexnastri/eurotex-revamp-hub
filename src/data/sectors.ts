@@ -89,6 +89,7 @@ export interface Sector {
   image: string;
   description: string;
   applicationsImage: string;
+  applicationsText: string;
   applications: {
     title: string;
     description: string;
@@ -112,6 +113,7 @@ export const sectors: Sector[] = [
     image: placeholderImage,
     applicationsImage: apparelFashion,
     description: 'Stylish webbings for fashion accessories, bags, and apparel.',
+    applicationsText: 'Footwear, belts, suitcases and travel bags, fashion handbags',
     applications: [],
     webbings: [
       { title: 'Web 1', image: apparelWeb1 },
@@ -130,6 +132,7 @@ export const sectors: Sector[] = [
     image: placeholderImage,
     applicationsImage: earlyChildhood,
     description: 'Safe and comfortable webbings for baby products and child safety.',
+    applicationsText: 'Strollers, prams, high chairs, bicycle child seats',
     applications: [],
     webbings: [
       { title: 'Web 1', image: earlyWeb1 },
@@ -149,6 +152,7 @@ export const sectors: Sector[] = [
     image: placeholderImage,
     applicationsImage: furniture,
     description: 'Decorative and functional webbings for furniture and home decor.',
+    applicationsText: 'Rigid webbing for sofas and outdoor seating',
     applications: [],
     webbings: [
       { title: 'Web 1', image: furnitureWeb1 },
@@ -165,6 +169,7 @@ export const sectors: Sector[] = [
     image: placeholderImage,
     applicationsImage: industrialLifting,
     description: 'Heavy-duty webbings for lifting, lashing, and industrial applications.',
+    applicationsText: 'Protection sleeves for high-pressure hoses, conveyor belts, filtration, laundry tapes, big bags, lifting slings, cargo securing and packaging systems, textile strapping, ski carriers, bicycle carriers',
     applications: [],
     webbings: [
       { title: 'Web 1', image: industrialWeb1 },
@@ -182,6 +187,7 @@ export const sectors: Sector[] = [
     image: placeholderImage,
     applicationsImage: medicalOrthopedics,
     description: 'Specialized webbings for medical devices and orthopedic supports.',
+    applicationsText: 'Stretchers, casualty recovery systems, orthopedic braces, patient restraint systems, disposable equipment',
     applications: [],
     webbings: [
       { title: 'Web 1', image: medicalWeb1 },
@@ -199,6 +205,7 @@ export const sectors: Sector[] = [
     image: placeholderImage,
     applicationsImage: military,
     description: 'Durable webbings for military equipment and tactical gear.',
+    applicationsText: 'Backpacks, uniforms, vests, belts, tactical gear',
     applications: [],
     webbings: [
       { title: 'Web 1', image: militaryWeb1 },
@@ -217,6 +224,7 @@ export const sectors: Sector[] = [
     image: placeholderImage,
     applicationsImage: personalProtection,
     description: 'Safety webbings for personal protective equipment.',
+    applicationsText: 'Fall-arrest harnesses, positioning belts, work helmets, emergency equipment',
     applications: [],
     webbings: [
       { title: 'Web 1', image: protectionWeb1 },
@@ -237,6 +245,7 @@ export const sectors: Sector[] = [
     image: placeholderImage,
     applicationsImage: safetyBelts,
     description: 'High-quality webbings for safety belt systems.',
+    applicationsText: 'Special vehicles, aeronautics, child car seats',
     applications: [],
     webbings: [
       { title: 'Web 1', image: safetyWeb1 },
@@ -255,6 +264,7 @@ export const sectors: Sector[] = [
     image: placeholderImage,
     applicationsImage: sportOutdoor,
     description: 'Performance webbings for sports equipment and outdoor gear.',
+    applicationsText: 'Diving equipment, life jackets, climbing accessories, leashes, motorcycle helmets, skiing, cycling, sports bags, backpacks',
     applications: [],
     webbings: [
       { title: 'Web 1', image: sportWeb1 },
