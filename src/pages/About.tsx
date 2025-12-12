@@ -1,26 +1,101 @@
 import { Helmet } from 'react-helmet-async';
+import { useState, useEffect, useCallback } from 'react';
+import useEmblaCarousel from 'embla-carousel-react';
+import factory1 from '@/assets/home/factory-1.jpg';
+import factory2 from '@/assets/home/factory-2.jpg';
+import factory3 from '@/assets/home/factory-3.jpg';
+import factory4 from '@/assets/home/factory-4.jpg';
+import factory5 from '@/assets/home/factory-5.jpg';
+
+const factoryImages = [
+  { src: factory1, alt: 'Eurotex weaving factory floor with industrial looms' },
+  { src: factory2, alt: 'Precision weaving machinery in operation' },
+  { src: factory3, alt: 'Thread spools and weaving equipment' },
+  { src: factory4, alt: 'Eurotex facility exterior' },
+  { src: factory5, alt: 'Eurotex modern building facade' },
+];
 
 export default function About() {
+  const [factoryEmblaRef, factoryEmblaApi] = useEmblaCarousel({ loop: true });
+  const [factorySelectedIndex, setFactorySelectedIndex] = useState(0);
+
+  const onFactorySelect = useCallback(() => {
+    if (!factoryEmblaApi) return;
+    setFactorySelectedIndex(factoryEmblaApi.selectedScrollSnap());
+  }, [factoryEmblaApi]);
+
+  useEffect(() => {
+    if (!factoryEmblaApi) return;
+    onFactorySelect();
+    factoryEmblaApi.on('select', onFactorySelect);
+    
+    const autoplay = setInterval(() => {
+      factoryEmblaApi.scrollNext();
+    }, 4000);
+
+    return () => {
+      factoryEmblaApi.off('select', onFactorySelect);
+      clearInterval(autoplay);
+    };
+  }, [factoryEmblaApi, onFactorySelect]);
+
+  const scrollFactoryTo = useCallback((index: number) => {
+    if (factoryEmblaApi) factoryEmblaApi.scrollTo(index);
+  }, [factoryEmblaApi]);
+
   return (
     <>
       <Helmet>
         <title>Who Are We - Eurotex Nastri | Italian Textile Manufacturer</title>
         <meta
           name="description"
-          content="Learn about Eurotex SRL, an Italian textile manufacturer with over 35 years of experience in producing premium webbings and narrow fabrics."
+          content="Learn about Eurotex SRL, an Italian textile manufacturer with over 50 years of experience in producing premium webbings and narrow fabrics."
         />
       </Helmet>
 
       {/* Hero */}
       <section className="py-20 md:py-32">
         <div className="section-container">
-          <div className="max-w-4xl">
+          <div className="max-w-4xl mx-auto text-center">
             <h1 className="section-title mb-6 animate-slide-up">
               Who Are We
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed animate-slide-up" style={{ animationDelay: '100ms' }}>
               A legacy of Italian craftsmanship in textile manufacturing.
             </p>
+
+            {/* Factory Carousel */}
+            <div className="mt-10 animate-fade-in" style={{ animationDelay: '200ms' }}>
+              <div className="overflow-hidden rounded-sm shadow-card" ref={factoryEmblaRef}>
+                <div className="flex">
+                  {factoryImages.map((image, index) => (
+                    <div key={index} className="flex-[0_0_100%] min-w-0">
+                      <img
+                        src={image.src}
+                        alt={image.alt}
+                        className="w-full aspect-[16/9] object-cover"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+              
+              {/* Carousel Dots */}
+              <div className="flex justify-center gap-2 mt-4">
+                {factoryImages.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => scrollFactoryTo(index)}
+                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                      index === factorySelectedIndex 
+                        ? 'bg-foreground w-6' 
+                        : 'bg-foreground/30 hover:bg-foreground/50'
+                    }`}
+                    aria-label={`Go to factory slide ${index + 1}`}
+                  />
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -32,13 +107,22 @@ export default function About() {
             <div className="space-y-6">
               <h2 className="text-2xl font-light text-foreground">Our Story</h2>
               <p className="text-muted-foreground leading-relaxed">
-                Founded in 1985, Eurotex SRL has grown from a small workshop to a leading manufacturer 
-                of textile webbings and narrow fabrics. Based in Vedano al Lambro, in the heart of 
-                Italy's industrial region, we combine traditional craftsmanship with modern technology.
+                Founded in 1974, Eurotex SRL has grown from a small workshop to a leading manufacturer 
+                of textile webbings and narrow fabrics. Mr. Crippa Gian Claudio, after gaining years of 
+                experience in a traditional textile company, decided to follow his own path and founded 
+                EUROTEX—a strongly family-oriented company specializing in the production of woven tapes 
+                for various technical sectors.
+              </p>
+              <p className="text-muted-foreground leading-relaxed">
+                EUROTEX's vision proved successful: the company grew, and the second generation of the 
+                Crippa family began to take an active role. Toward the end of the 1980s, a dyeing and 
+                finishing line for woven tapes was introduced, expanding and improving the range of 
+                products offered. In 1992, the company moved to the modern facility where it still 
+                operates today.
               </p>
               <p className="text-muted-foreground leading-relaxed">
                 Our commitment to quality has earned us certifications and partnerships with major 
-                brands across automotive, fashion, medical, and industrial sectors worldwide.
+                brands across personal protection, furniture, military, and industrial sectors worldwide.
               </p>
             </div>
             
@@ -67,9 +151,9 @@ export default function About() {
         <div className="section-container">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
-              { number: '35+', label: 'Years Experience' },
+              { number: '50+', label: 'Years Experience' },
               { number: '500+', label: 'Products' },
-              { number: '50+', label: 'Countries Served' },
+              { number: '20+', label: 'Countries Served' },
               { number: '100%', label: 'Made in Italy' },
             ].map((stat, index) => (
               <div
