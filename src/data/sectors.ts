@@ -31,6 +31,13 @@ import furnitureWeb2 from '@/assets/webs/furniture-2.jpg';
 import furnitureWeb3 from '@/assets/webs/furniture-3.jpg';
 import furnitureWeb4 from '@/assets/webs/furniture-4.jpg';
 
+// Industrial, Lifting & Transport webs
+import industrialWeb1 from '@/assets/webs/industrial-1.jpg';
+import industrialWeb2 from '@/assets/webs/industrial-2.jpg';
+import industrialWeb3 from '@/assets/webs/industrial-3.jpg';
+import industrialWeb4 from '@/assets/webs/industrial-4.jpg';
+import industrialWeb5 from '@/assets/webs/industrial-5.jpg';
+
 export interface Sector {
   id: string;
   slug: string;
@@ -116,7 +123,13 @@ export const sectors: Sector[] = [
     applicationsImage: industrialLifting,
     description: 'Heavy-duty webbings for lifting, lashing, and industrial applications.',
     applications: [],
-    webbings: [],
+    webbings: [
+      { title: 'Web 1', image: industrialWeb1 },
+      { title: 'Web 2', image: industrialWeb2 },
+      { title: 'Web 3', image: industrialWeb3 },
+      { title: 'Web 4', image: industrialWeb4 },
+      { title: 'Web 5', image: industrialWeb5 },
+    ],
   },
   {
     id: '5',
