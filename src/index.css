@@ -185,6 +185,11 @@
     @apply transition-all duration-300 hover:bg-foreground hover:text-background;
   }
   
+  /* Logo styling - navy color on light backgrounds */
+  .logo-dark {
+    filter: brightness(0) saturate(100%) invert(15%) sepia(20%) saturate(800%) hue-rotate(180deg) brightness(95%) contrast(90%);
+  }
+  
   /* Footer */
   .footer-text {
     @apply text-xs text-muted-foreground tracking-wide;
