@@ -175,7 +175,7 @@ export default function Index() {
                       <img
                         src={image.src}
                         alt={image.alt}
-                        className="w-full aspect-[21/9] object-cover"
+                        className="w-full aspect-[16/9] object-cover"
                       />
                     </div>
                   ))}
