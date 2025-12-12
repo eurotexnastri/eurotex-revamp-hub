@@ -15,6 +15,7 @@ export interface Sector {
   titleIt: string;
   image: string;
   description: string;
+  applicationsImage: string;
   applications: {
     title: string;
     description: string;
@@ -26,13 +27,17 @@ export interface Sector {
   }[];
 }
 
+// Placeholder for square sector card images - will be replaced later
+const placeholderImage = 'https://images.unsplash.com/photo-1558171813-4c088753af8f?w=600&h=600&fit=crop';
+
 export const sectors: Sector[] = [
   {
     id: '1',
     slug: 'apparel-fashion',
     title: 'Apparel & Fashion',
     titleIt: 'Abbigliamento e Moda',
-    image: apparelFashion,
+    image: placeholderImage,
+    applicationsImage: apparelFashion,
     description: 'Stylish webbings for fashion accessories, bags, and apparel.',
     applications: [],
     webbings: [],
@@ -42,7 +47,8 @@ export const sectors: Sector[] = [
     slug: 'early-childhood',
     title: 'Early Childhood',
     titleIt: 'Prima Infanzia',
-    image: earlyChildhood,
+    image: placeholderImage,
+    applicationsImage: earlyChildhood,
     description: 'Safe and comfortable webbings for baby products and child safety.',
     applications: [],
     webbings: [],
@@ -52,7 +58,8 @@ export const sectors: Sector[] = [
     slug: 'furniture',
     title: 'Furniture',
     titleIt: 'Arredamento',
-    image: furniture,
+    image: placeholderImage,
+    applicationsImage: furniture,
     description: 'Decorative and functional webbings for furniture and home decor.',
     applications: [],
     webbings: [],
@@ -62,7 +69,8 @@ export const sectors: Sector[] = [
     slug: 'industrial-lifting-transport',
     title: 'Industrial, Lifting & Transport',
     titleIt: 'Industriale, Sollevamento e Trasporto',
-    image: industrialLifting,
+    image: placeholderImage,
+    applicationsImage: industrialLifting,
     description: 'Heavy-duty webbings for lifting, lashing, and industrial applications.',
     applications: [],
     webbings: [],
@@ -72,7 +80,8 @@ export const sectors: Sector[] = [
     slug: 'medical-orthopedics',
     title: 'Medical & Orthopedics',
     titleIt: 'Medicale e Ortopedico',
-    image: medicalOrthopedics,
+    image: placeholderImage,
+    applicationsImage: medicalOrthopedics,
     description: 'Specialized webbings for medical devices and orthopedic supports.',
     applications: [],
     webbings: [],
@@ -82,7 +91,8 @@ export const sectors: Sector[] = [
     slug: 'military',
     title: 'Military',
     titleIt: 'Militare',
-    image: military,
+    image: placeholderImage,
+    applicationsImage: military,
     description: 'Durable webbings for military equipment and tactical gear.',
     applications: [],
     webbings: [],
@@ -92,7 +102,8 @@ export const sectors: Sector[] = [
     slug: 'personal-protection',
     title: 'Personal Protection',
     titleIt: 'Protezione Individuale',
-    image: personalProtection,
+    image: placeholderImage,
+    applicationsImage: personalProtection,
     description: 'Safety webbings for personal protective equipment.',
     applications: [],
     webbings: [],
@@ -102,7 +113,8 @@ export const sectors: Sector[] = [
     slug: 'safety-belts',
     title: 'Safety Belts',
     titleIt: 'Cinture di Sicurezza',
-    image: safetyBelts,
+    image: placeholderImage,
+    applicationsImage: safetyBelts,
     description: 'High-quality webbings for safety belt systems.',
     applications: [],
     webbings: [],
@@ -112,7 +124,8 @@ export const sectors: Sector[] = [
     slug: 'sport-outdoor',
     title: 'Sport & Outdoor',
     titleIt: 'Sport e Outdoor',
-    image: sportOutdoor,
+    image: placeholderImage,
+    applicationsImage: sportOutdoor,
     description: 'Performance webbings for sports equipment and outdoor gear.',
     applications: [],
     webbings: [],

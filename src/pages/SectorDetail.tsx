@@ -60,7 +60,16 @@ export default function SectorDetail() {
             Applicazioni
           </h2>
           
-          {sector.applications.length > 0 ? (
+          {/* Applications Image */}
+          <div className="mb-8">
+            <img
+              src={sector.applicationsImage}
+              alt={`${sector.title} applications`}
+              className="w-full rounded-sm"
+            />
+          </div>
+          
+          {sector.applications.length > 0 && (
             <div className="grid md:grid-cols-2 gap-8">
               {sector.applications.map((app, index) => (
                 <div
@@ -78,12 +87,6 @@ export default function SectorDetail() {
                   <p className="text-sm text-muted-foreground">{app.description}</p>
                 </div>
               ))}
-            </div>
-          ) : (
-            <div className="bg-card p-8 rounded-sm text-center">
-              <p className="text-muted-foreground">
-                Application content will be added here. Please provide the text and images for this sector.
-              </p>
             </div>
           )}
         </div>

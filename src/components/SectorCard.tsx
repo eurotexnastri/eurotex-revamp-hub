@@ -15,7 +15,7 @@ export function SectorCard({ title, image, slug, index }: SectorCardProps) {
       style={{ animationDelay: `${index * 100}ms` }}
     >
       <div className="overflow-hidden rounded-sm">
-        <div className="aspect-[4/1] relative">
+        <div className="aspect-square relative">
           <img
             src={image}
             alt={title}
