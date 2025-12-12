@@ -175,7 +175,7 @@ export const translations = {
       exploreProducts: 'Esplora i Prodotti',
       getInTouch: 'Contattaci',
       over50Years: 'Oltre 50 Anni di Eccellenza',
-      intro: 'Dal 1974, Eurotex è un produttore italiano leader di nastri tecnici e tessuti stretti di alta qualità. I nostri prodotti servono diverse industrie tra cui automotive, moda, medicale, militare e sport. Con macchinari all\'avanguardia e rigorosi controlli di qualità, offriamo soluzioni che soddisfano le specifiche più esigenti.',
+      intro: 'Dal 1974, Eurotex è un produttore italiano leader di nastri tecnici di alta qualità. I prodotti Eurotex servono diversi settori tra cui sicurezza, moda, medicale, militare e sport. Con macchinari all\'avanguardia e rigorosi controlli di qualità, Eurotex offre soluzioni che soddisfano le specifiche più esigenti.',
       ourSectors: 'I Nostri Settori',
       specializedSolutions: 'Soluzioni specializzate per ogni industria',
       viewAllSectors: 'Vedi Tutti i Settori',
@@ -194,22 +194,22 @@ export const translations = {
     // About page
     about: {
       title: 'Chi Siamo',
-      subtitle: 'Un\'eredità di artigianato italiano nella produzione tessile.',
+      subtitle: 'Leader italiani nella produzione dei nastri tecnici.',
       ourStory: 'La Nostra Storia',
-      storyP1: 'Fondata nel 1974, Eurotex SRL è cresciuta da un piccolo laboratorio a un produttore leader di nastri tessili e tessuti stretti. Il Sig. Crippa Gian Claudio, dopo aver acquisito anni di esperienza in un\'azienda tessile tradizionale, ha deciso di seguire la propria strada e ha fondato EUROTEX—un\'azienda fortemente a conduzione familiare specializzata nella produzione di nastri tessuti per vari settori tecnici. Lo ha fatto con la chiara idea che solo un\'azienda giovane, moderna e flessibile potesse rimanere competitiva nel tempo.',
-      storyP2: 'La visione di EUROTEX si è rivelata vincente: l\'azienda è cresciuta e la seconda generazione della famiglia Crippa ha iniziato a svolgere un ruolo attivo—sia pratico che manageriale—con l\'ingresso dei due figli. Verso la fine degli anni \'80, è stata introdotta una linea di tintura e finissaggio per nastri tessuti, ampliando e migliorando la gamma di prodotti offerti. Nel 1992, l\'azienda, ormai consolidata, si è trasferita nella moderna struttura dove opera ancora oggi.',
-      storyP3: 'La costante convinzione che tecnologia, professionalità, esperienza e particolare attenzione alle dinamiche di mercato—così come alle esigenze dei clienti—fossero gli strumenti vincenti ha reso EUROTEX un\'azienda conosciuta e apprezzata per la produzione di prodotti di alta qualità e un partner affidabile per i suoi clienti.',
+      storyP1: 'È il 5 Novembre 1973 ed il Signor Crippa Gian Claudio, dopo aver maturato anni di esperienza in un\'azienda tessile tradizionale, decide di percorrere la sua strada e fonda EUROTEX, azienda a forte carattere familiare specializzata nella produzione di nastri tessuti per i settori tecnici e sportivi, con la precisa idea che solo un\'azienda giovane, moderna e flessibile potesse essere competitiva nel tempo.',
+      storyP2: 'L\'idea di EUROTEX ha successo, l\'impresa si ingrandisce e inizia la collaborazione attiva, sia pratica che decisionale, della seconda generazione della famiglia Crippa, con l\'ingresso dei due figli. Verso la fine degli anni \'80 viene inserita una linea di tintoria e finissaggio per nastri tessuti, per ampliare e migliorare la gamma dei prodotti offerti. Nel 1992 l\'impresa, ormai consolidata, si trasferisce nella moderna sede in cui lavora ancora oggi.',
+      storyP3: 'La costante convinzione che tecnologia, professionalità, esperienza ed una attenzione particolare nei confronti delle dinamiche del mercato, così come alle esigenze dei clienti, fossero le armi vincenti, ha fatto diventare EUROTEX una realtà conosciuta e apprezzata per la realizzazione di prodotti di alta qualità, ed un partner affidabile per i propri clienti.',
       storyP4: 'Grazie ai suoi punti di forza, Eurotex è in grado di fornire risposte rapide e consegne veloci per soddisfare qualsiasi esigenza, anche nella creazione di prodotti nuovi ed esclusivi. L\'impegno dell\'azienda per la qualità ha ottenuto certificazioni e partnership con i principali marchi nei settori della protezione individuale, arredamento, militare e industriale in tutto il mondo.',
       ourValues: 'I Nostri Valori',
       values: {
-        quality: { title: 'Qualità', desc: 'Standard rigorosi in ogni fase della produzione' },
+        quality: { title: 'Rispetto', desc: 'Delle persone e dell\'ambiente' },
         innovation: { title: 'Innovazione', desc: 'Miglioramento continuo e investimenti in R&S' },
-        reliability: { title: 'Affidabilità', desc: 'Consegne costanti e supporto clienti' },
+        reliability: { title: 'Affidabilità', desc: 'Costante attenzione alla soddisfazione dei clienti' },
         sustainability: { title: 'Sostenibilità', desc: 'Materiali e processi eco-consapevoli' },
       },
       ourStrengths: 'I Nostri Punti di Forza',
       strengths: {
-        experience: { title: 'Esperienza', desc: 'Oltre 50 anni di competenza nella produzione di nastri tessuti' },
+        experience: { title: 'Esperienza', desc: 'Oltre 50 anni di esperienza nella produzione di nastri tessuti' },
         technology: { title: 'Tecnologia', desc: 'Macchinari e attrezzature tecnologicamente avanzati' },
         personnel: { title: 'Personale', desc: 'Team qualificato ed esperto' },
         facility: { title: 'Struttura', desc: 'Oltre 3.000 m² di spazio produttivo coperto' },
@@ -221,7 +221,7 @@ export const translations = {
     // Products page
     products: {
       title: 'I Nostri Prodotti',
-      subtitle: 'Una gamma completa di nastri tessili e tessuti stretti, progettati per le prestazioni e fabbricati con precisione.',
+      subtitle: 'Una gamma completa di nastri tecnici di primissima qualità e proprietà tecniche.',
       process: 'Il Nostro Processo Produttivo',
       steps: {
         weaving: 'Tessitura',
