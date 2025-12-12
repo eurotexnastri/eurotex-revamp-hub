@@ -45,6 +45,14 @@ import medicalWeb3 from '@/assets/webs/medical-3.jpg';
 import medicalWeb4 from '@/assets/webs/medical-4.jpg';
 import medicalWeb5 from '@/assets/webs/medical-5.jpg';
 
+// Military webs
+import militaryWeb1 from '@/assets/webs/military-1.jpg';
+import militaryWeb2 from '@/assets/webs/military-2.jpg';
+import militaryWeb3 from '@/assets/webs/military-3.jpg';
+import militaryWeb4 from '@/assets/webs/military-4.jpg';
+import militaryWeb5 from '@/assets/webs/military-5.jpg';
+import militaryWeb6 from '@/assets/webs/military-6.jpg';
+
 export interface Sector {
   id: string;
   slug: string;
@@ -164,7 +172,14 @@ export const sectors: Sector[] = [
     applicationsImage: military,
     description: 'Durable webbings for military equipment and tactical gear.',
     applications: [],
-    webbings: [],
+    webbings: [
+      { title: 'Web 1', image: militaryWeb1 },
+      { title: 'Web 2', image: militaryWeb2 },
+      { title: 'Web 3', image: militaryWeb3 },
+      { title: 'Web 4', image: militaryWeb4 },
+      { title: 'Web 5', image: militaryWeb5 },
+      { title: 'Web 6', image: militaryWeb6 },
+    ],
   },
   {
     id: '7',
