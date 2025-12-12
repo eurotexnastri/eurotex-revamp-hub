@@ -25,6 +25,12 @@ import earlyWeb5 from '@/assets/webs/early-childhood-5.jpg';
 import earlyWeb6 from '@/assets/webs/early-childhood-6.jpg';
 import earlyWeb7 from '@/assets/webs/early-childhood-7.jpg';
 
+// Furniture webs
+import furnitureWeb1 from '@/assets/webs/furniture-1.jpg';
+import furnitureWeb2 from '@/assets/webs/furniture-2.jpg';
+import furnitureWeb3 from '@/assets/webs/furniture-3.jpg';
+import furnitureWeb4 from '@/assets/webs/furniture-4.jpg';
+
 export interface Sector {
   id: string;
   slug: string;
@@ -94,7 +100,12 @@ export const sectors: Sector[] = [
     applicationsImage: furniture,
     description: 'Decorative and functional webbings for furniture and home decor.',
     applications: [],
-    webbings: [],
+    webbings: [
+      { title: 'Web 1', image: furnitureWeb1 },
+      { title: 'Web 2', image: furnitureWeb2 },
+      { title: 'Web 3', image: furnitureWeb3 },
+      { title: 'Web 4', image: furnitureWeb4 },
+    ],
   },
   {
     id: '4',
