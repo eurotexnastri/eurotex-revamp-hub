@@ -88,6 +88,7 @@ export interface Sector {
   titleIt: string;
   image: string;
   description: string;
+  descriptionIt: string;
   applicationsImage: string;
   applicationsText: string;
   applicationsTextIt: string;
@@ -114,6 +115,7 @@ export const sectors: Sector[] = [
     image: placeholderImage,
     applicationsImage: apparelFashion,
     description: 'Stylish webbings for fashion accessories, bags, and apparel.',
+    descriptionIt: 'Nastri eleganti per accessori moda, borse e abbigliamento.',
     applicationsText: 'Footwear, belts, suitcases and travel bags, fashion handbags',
     applicationsTextIt: 'Calzature, cinture, valigie e borse da viaggio, borse moda',
     applications: [],
@@ -134,6 +136,7 @@ export const sectors: Sector[] = [
     image: placeholderImage,
     applicationsImage: earlyChildhood,
     description: 'Safe and comfortable webbings for baby products and child safety.',
+    descriptionIt: 'Nastri sicuri e confortevoli per prodotti per bambini e sicurezza infantile.',
     applicationsText: 'Strollers, prams, high chairs, bicycle child seats',
     applicationsTextIt: 'Passeggini, carrozzine, seggioloni, seggiolini bici per bambini',
     applications: [],
@@ -155,6 +158,7 @@ export const sectors: Sector[] = [
     image: placeholderImage,
     applicationsImage: furniture,
     description: 'Decorative and functional webbings for furniture and home decor.',
+    descriptionIt: 'Nastri decorativi e funzionali per arredamento e complementi d\'arredo.',
     applicationsText: 'Rigid webbing for sofas and outdoor seating',
     applicationsTextIt: 'Nastri rigidi per divani e sedute da esterno',
     applications: [],
@@ -173,6 +177,7 @@ export const sectors: Sector[] = [
     image: placeholderImage,
     applicationsImage: industrialLifting,
     description: 'Heavy-duty webbings for lifting, lashing, and industrial applications.',
+    descriptionIt: 'Nastri resistenti per sollevamento, ancoraggio e applicazioni industriali.',
     applicationsText: 'Protection sleeves for high-pressure hoses, conveyor belts, filtration, laundry tapes, big bags, lifting slings, cargo securing and packaging systems, textile strapping, ski carriers, bicycle carriers',
     applicationsTextIt: 'Guaine di protezione per tubi alta pressione, nastri trasportatori, filtrazione, nastri per lavanderie, big bags, brache di sollevamento, sistemi di ancoraggio e imballaggio merci, regge tessili, portasci, portabiciclette',
     applications: [],
@@ -192,6 +197,7 @@ export const sectors: Sector[] = [
     image: placeholderImage,
     applicationsImage: medicalOrthopedics,
     description: 'Specialized webbings for medical devices and orthopedic supports.',
+    descriptionIt: 'Nastri specializzati per dispositivi medici e supporti ortopedici.',
     applicationsText: 'Stretchers, casualty recovery systems, orthopedic braces, patient restraint systems, disposable equipment',
     applicationsTextIt: 'Barelle, sistemi di recupero infortunati, tutori ortopedici, sistemi di contenimento pazienti, materiale monouso',
     applications: [],
@@ -211,6 +217,7 @@ export const sectors: Sector[] = [
     image: placeholderImage,
     applicationsImage: military,
     description: 'Durable webbings for military equipment and tactical gear.',
+    descriptionIt: 'Nastri resistenti per equipaggiamento militare e attrezzature tattiche.',
     applicationsText: 'Backpacks, uniforms, vests, belts, tactical gear',
     applicationsTextIt: 'Zaini, uniformi, gilet, cinture, equipaggiamento tattico',
     applications: [],
@@ -231,6 +238,7 @@ export const sectors: Sector[] = [
     image: placeholderImage,
     applicationsImage: personalProtection,
     description: 'Safety webbings for personal protective equipment.',
+    descriptionIt: 'Nastri di sicurezza per dispositivi di protezione individuale.',
     applicationsText: 'Fall-arrest harnesses, positioning belts, work helmets, emergency equipment',
     applicationsTextIt: 'Imbracature anticaduta, cinture di posizionamento, elmetti da lavoro, attrezzature di emergenza',
     applications: [],
@@ -253,6 +261,7 @@ export const sectors: Sector[] = [
     image: placeholderImage,
     applicationsImage: safetyBelts,
     description: 'High-quality webbings for safety belt systems.',
+    descriptionIt: 'Nastri di alta qualità per sistemi di cinture di sicurezza.',
     applicationsText: 'Special vehicles, aeronautics, child car seats',
     applicationsTextIt: 'Veicoli speciali, aeronautica, seggiolini auto per bambini',
     applications: [],
@@ -273,6 +282,7 @@ export const sectors: Sector[] = [
     image: placeholderImage,
     applicationsImage: sportOutdoor,
     description: 'Performance webbings for sports equipment and outdoor gear.',
+    descriptionIt: 'Nastri ad alte prestazioni per attrezzature sportive e outdoor.',
     applicationsText: 'Diving equipment, life jackets, climbing accessories, leashes, motorcycle helmets, skiing, cycling, sports bags, backpacks',
     applicationsTextIt: 'Attrezzature subacquee, giubbotti di salvataggio, accessori per arrampicata, guinzagli, caschi moto, sci, ciclismo, borse sportive, zaini',
     applications: [],
