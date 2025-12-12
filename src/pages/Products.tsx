@@ -1,7 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { ArrowRight, ChevronRight } from 'lucide-react';
 
 import products1 from '@/assets/products/products-1.jpg';
 import products2 from '@/assets/products/products-2.jpg';
@@ -43,16 +42,14 @@ const finishingTreatments = [
   'Combination of different treatments',
 ];
 
+const processSteps = [
+  { number: '01', title: 'Weaving', id: 'weaving' },
+  { number: '02', title: 'Finishing', id: 'finishing' },
+  { number: '03', title: 'Design', id: 'design' },
+  { number: '04', title: 'Cutting & Packaging', id: 'cutting' },
+];
+
 export default function Products() {
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % productImages.length);
-    }, 4000);
-    return () => clearInterval(timer);
-  }, []);
-
   return (
     <>
       <Helmet>
@@ -78,48 +75,66 @@ export default function Products() {
         </div>
       </section>
 
-      {/* Carousel */}
+      {/* Image Mosaic */}
       <section className="pb-16 md:pb-24">
         <div className="section-container">
-          <div className="relative w-full overflow-hidden rounded-sm shadow-subtle">
-            <div className="aspect-[16/9] md:aspect-[21/9] relative">
-              {productImages.map((image, index) => (
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+            {productImages.map((image, index) => (
+              <div
+                key={index}
+                className="aspect-square overflow-hidden rounded-sm bg-white shadow-subtle animate-fade-in"
+                style={{ animationDelay: `${index * 50}ms` }}
+              >
                 <img
-                  key={index}
                   src={image}
                   alt={`Eurotex webbing product ${index + 1}`}
-                  className={`absolute inset-0 w-full h-full object-contain bg-white transition-opacity duration-700 ${
-                    index === currentSlide ? 'opacity-100' : 'opacity-0'
-                  }`}
+                  className="w-full h-full object-contain p-2"
                 />
-              ))}
-            </div>
-            {/* Carousel indicators */}
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
-              {productImages.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentSlide(index)}
-                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                    index === currentSlide
-                      ? 'bg-primary w-6'
-                      : 'bg-primary/40 hover:bg-primary/60'
-                  }`}
-                  aria-label={`Go to slide ${index + 1}`}
-                />
-              ))}
-            </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Process Flow Indicator */}
+      <section className="py-12 md:py-16 bg-secondary/30">
+        <div className="section-container">
+          <h2 className="text-2xl md:text-3xl font-light text-foreground text-center mb-10">
+            Our Production Process
+          </h2>
+          <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-0">
+            {processSteps.map((step, index) => (
+              <div key={step.id} className="flex items-center">
+                <a
+                  href={`#${step.id}`}
+                  className="flex items-center gap-3 px-4 py-3 rounded-sm hover:bg-background/50 transition-colors group"
+                >
+                  <span className="text-3xl md:text-4xl font-light text-primary/40 group-hover:text-primary transition-colors">
+                    {step.number}
+                  </span>
+                  <span className="text-foreground font-medium group-hover:text-primary transition-colors">
+                    {step.title}
+                  </span>
+                </a>
+                {index < processSteps.length - 1 && (
+                  <ChevronRight className="hidden md:block h-6 w-6 text-primary/40 mx-2" />
+                )}
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Weaving Section */}
-      <section className="py-12 md:py-20">
+      <section id="weaving" className="py-12 md:py-20 scroll-mt-20">
         <div className="section-container">
           <div className="max-w-4xl">
-            <h2 className="text-2xl md:text-3xl font-light text-foreground mb-6">
-              Weaving
-            </h2>
+            <div className="flex items-center gap-4 mb-6">
+              <span className="text-5xl font-light text-primary/20">01</span>
+              <h2 className="text-2xl md:text-3xl font-light text-foreground">
+                Weaving
+              </h2>
+            </div>
             <p className="text-muted-foreground leading-relaxed mb-6">
               Eurotex's production offers a very wide range of tapes with heights between 10 and 200 millimeters, 
               and thicknesses between 0.6 and 4 millimeters. The following categories are available:
@@ -141,12 +156,15 @@ export default function Products() {
       </section>
 
       {/* Finishing Section */}
-      <section className="py-12 md:py-20 bg-secondary/30">
+      <section id="finishing" className="py-12 md:py-20 bg-secondary/30 scroll-mt-20">
         <div className="section-container">
           <div className="max-w-4xl">
-            <h2 className="text-2xl md:text-3xl font-light text-foreground mb-6">
-              Finishing
-            </h2>
+            <div className="flex items-center gap-4 mb-6">
+              <span className="text-5xl font-light text-primary/20">02</span>
+              <h2 className="text-2xl md:text-3xl font-light text-foreground">
+                Finishing
+              </h2>
+            </div>
             <p className="text-muted-foreground leading-relaxed mb-6">
               Thanks to its in-house dyeing and finishing equipment, Eurotex can offer specific 
               enhancement treatments for woven tapes, such as:
@@ -164,12 +182,15 @@ export default function Products() {
       </section>
 
       {/* Design Section */}
-      <section className="py-12 md:py-20">
+      <section id="design" className="py-12 md:py-20 scroll-mt-20">
         <div className="section-container">
           <div className="max-w-4xl">
-            <h2 className="text-2xl md:text-3xl font-light text-foreground mb-6">
-              Design
-            </h2>
+            <div className="flex items-center gap-4 mb-6">
+              <span className="text-5xl font-light text-primary/20">03</span>
+              <h2 className="text-2xl md:text-3xl font-light text-foreground">
+                Design
+              </h2>
+            </div>
             <p className="text-muted-foreground leading-relaxed">
               Eurotex offers customized tapes with text, logos, or designs, either woven into 
               the tape using the Jacquard system or printed.
@@ -179,12 +200,15 @@ export default function Products() {
       </section>
 
       {/* Cutting and Packaging Section */}
-      <section className="py-12 md:py-20 bg-secondary/30">
+      <section id="cutting" className="py-12 md:py-20 bg-secondary/30 scroll-mt-20">
         <div className="section-container">
           <div className="max-w-4xl">
-            <h2 className="text-2xl md:text-3xl font-light text-foreground mb-6">
-              Cutting and Packaging
-            </h2>
+            <div className="flex items-center gap-4 mb-6">
+              <span className="text-5xl font-light text-primary/20">04</span>
+              <h2 className="text-2xl md:text-3xl font-light text-foreground">
+                Cutting & Packaging
+              </h2>
+            </div>
             <p className="text-muted-foreground leading-relaxed">
               Eurotex has equipment for cutting and punching tapes—both hot and ultrasonic—according 
               to the sizes and shapes required by the customer.
