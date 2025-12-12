@@ -29,7 +29,7 @@ export default function Sectors() {
       </section>
 
       {/* Sectors Grid */}
-      <section className="py-12 md:py-20">
+      <section className="pb-12 md:pb-20">
         <div className="section-container">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {sectors.map((sector, index) => (
