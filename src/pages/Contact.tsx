@@ -1,5 +1,6 @@
 import { Helmet } from 'react-helmet-async';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin, Printer } from 'lucide-react';
+import buildingImage from '@/assets/contact/building.jpg';
 
 export default function Contact() {
   return (
@@ -12,23 +13,32 @@ export default function Contact() {
         />
       </Helmet>
 
-      {/* Hero */}
-      <section className="py-20 md:py-32">
+      {/* Hero with Building Image */}
+      <section className="py-16 md:py-24">
         <div className="section-container">
-          <div className="max-w-4xl">
-            <h1 className="section-title mb-6 animate-slide-up">
-              Contact Us
-            </h1>
-            <p className="text-xl text-muted-foreground leading-relaxed animate-slide-up" style={{ animationDelay: '100ms' }}>
-              We're here to help with your textile requirements. 
-              Reach out for quotes, technical support, or general inquiries.
-            </p>
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h1 className="section-title mb-6 animate-slide-up">
+                Contact Us
+              </h1>
+              <p className="text-xl text-muted-foreground leading-relaxed animate-slide-up" style={{ animationDelay: '100ms' }}>
+                We're here to help with your textile requirements. 
+                Reach out for quotes, technical support, or general inquiries.
+              </p>
+            </div>
+            <div className="animate-slide-up" style={{ animationDelay: '200ms' }}>
+              <img
+                src={buildingImage}
+                alt="Eurotex building"
+                className="w-full rounded-sm shadow-subtle"
+              />
+            </div>
           </div>
         </div>
       </section>
 
       {/* Contact Info */}
-      <section className="py-12 md:py-20">
+      <section className="py-12 md:py-20 bg-secondary/30">
         <div className="section-container">
           <div className="grid md:grid-cols-2 gap-12 md:gap-20">
             {/* Contact Details */}
@@ -41,8 +51,8 @@ export default function Contact() {
                   <div>
                     <h3 className="font-medium text-foreground">Address</h3>
                     <p className="text-muted-foreground">
-                      Via Enrico Fermi 10<br />
-                      20854 Vedano al Lambro (MB)<br />
+                      Via E. Fermi 10<br />
+                      20854 Vedano al Lambro<br />
                       Italy
                     </p>
                   </div>
@@ -53,9 +63,19 @@ export default function Contact() {
                   <div>
                     <h3 className="font-medium text-foreground">Phone</h3>
                     <p className="text-muted-foreground">
-                      <a href="tel:+390000000000" className="hover:text-foreground transition-colors">
-                        +39 000 000 0000
+                      <a href="tel:+390392496615" className="hover:text-foreground transition-colors">
+                        +39 039 2496615
                       </a>
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <Printer className="h-5 w-5 text-muted-foreground mt-1 flex-shrink-0" />
+                  <div>
+                    <h3 className="font-medium text-foreground">Fax</h3>
+                    <p className="text-muted-foreground">
+                      +39 039 2496616
                     </p>
                   </div>
                 </div>
@@ -80,7 +100,7 @@ export default function Contact() {
               </div>
             </div>
 
-            {/* Contact Form Placeholder */}
+            {/* Contact Form */}
             <div className="bg-card p-8 rounded-sm shadow-subtle">
               <h2 className="text-xl font-medium text-foreground mb-6">Send a Message</h2>
               
@@ -146,13 +166,21 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* Map Placeholder */}
-      <section className="py-12 md:py-20 bg-secondary/30">
+      {/* Google Maps */}
+      <section className="py-12 md:py-20">
         <div className="section-container">
-          <div className="aspect-video bg-card rounded-sm flex items-center justify-center">
-            <p className="text-muted-foreground">
-              Map will be integrated here
-            </p>
+          <h2 className="text-2xl font-light text-foreground mb-8">Find Us</h2>
+          <div className="aspect-video rounded-sm overflow-hidden shadow-subtle">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2791.8892847244635!2d9.267191200000001!3d45.617635!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4786bbcf47e87543%3A0x6d78965bbdcd7c46!2sEurotex%20Srl!5e0!3m2!1sen!2sit!4v1702400000000!5m2!1sen!2sit"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Eurotex location"
+            />
           </div>
         </div>
       </section>
