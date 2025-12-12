@@ -8,6 +8,14 @@ import personalProtection from '@/assets/sectors/personal-protection.png';
 import safetyBelts from '@/assets/sectors/safety-belts.png';
 import sportOutdoor from '@/assets/sectors/sport-outdoor.png';
 
+// Apparel & Fashion webs
+import apparelWeb1 from '@/assets/webs/apparel-fashion-1.jpg';
+import apparelWeb2 from '@/assets/webs/apparel-fashion-2.jpg';
+import apparelWeb3 from '@/assets/webs/apparel-fashion-3.jpg';
+import apparelWeb4 from '@/assets/webs/apparel-fashion-4.jpg';
+import apparelWeb5 from '@/assets/webs/apparel-fashion-5.jpg';
+import apparelWeb6 from '@/assets/webs/apparel-fashion-6.jpg';
+
 export interface Sector {
   id: string;
   slug: string;
@@ -40,7 +48,14 @@ export const sectors: Sector[] = [
     applicationsImage: apparelFashion,
     description: 'Stylish webbings for fashion accessories, bags, and apparel.',
     applications: [],
-    webbings: [],
+    webbings: [
+      { title: 'Web 1', image: apparelWeb1 },
+      { title: 'Web 2', image: apparelWeb2 },
+      { title: 'Web 3', image: apparelWeb3 },
+      { title: 'Web 4', image: apparelWeb4 },
+      { title: 'Web 5', image: apparelWeb5 },
+      { title: 'Web 6', image: apparelWeb6 },
+    ],
   },
   {
     id: '2',
