@@ -57,7 +57,7 @@ export default function SectorDetail() {
       <section className="py-12 md:py-20 bg-secondary/30">
         <div className="section-container">
           <h2 className="text-2xl font-light text-foreground mb-8">
-            Applicazioni
+            Applications
           </h2>
           
           {/* Applications Image */}
@@ -96,23 +96,18 @@ export default function SectorDetail() {
       <section className="py-12 md:py-20">
         <div className="section-container">
           <h2 className="text-2xl font-light text-foreground mb-8">
-            Nastri
+            Webs
           </h2>
           
           {sector.webbings.length > 0 ? (
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
               {sector.webbings.map((webbing, index) => (
-                <div key={index} className="group">
-                  <div className="overflow-hidden rounded-sm bg-card shadow-subtle">
-                    <img
-                      src={webbing.image}
-                      alt={webbing.title}
-                      className="w-full aspect-square object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                  </div>
-                  <p className="text-xs text-muted-foreground mt-2 text-center">
-                    {webbing.title}
-                  </p>
+                <div key={index} className="group overflow-hidden rounded-sm bg-card shadow-subtle">
+                  <img
+                    src={webbing.image}
+                    alt={webbing.title}
+                    className="w-full aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
                 </div>
               ))}
             </div>
