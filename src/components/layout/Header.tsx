@@ -2,18 +2,21 @@ import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import logo from '@/assets/logo.png';
-
-const navItems = [
-  { name: 'Home', href: '/' },
-  { name: 'Who Are We', href: '/about' },
-  { name: 'Products', href: '/products' },
-  { name: 'Sectors & Applications', href: '/sectors' },
-  { name: 'Contact', href: '/contact' },
-];
+import { LanguageToggle } from '@/components/LanguageToggle';
+import { useLanguage } from '@/i18n/LanguageContext';
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
+  const { t } = useLanguage();
+
+  const navItems = [
+    { name: t.nav.home, href: '/' },
+    { name: t.nav.whoAreWe, href: '/about' },
+    { name: t.nav.products, href: '/products' },
+    { name: t.nav.sectors, href: '/sectors' },
+    { name: t.nav.contact, href: '/contact' },
+  ];
 
   const isActive = (href: string) => {
     if (href === '/') return location.pathname === '/';
@@ -37,23 +40,27 @@ export function Header() {
           <nav className="hidden lg:flex items-center gap-8">
             {navItems.map((item) => (
               <Link
-                key={item.name}
+                key={item.href}
                 to={item.href}
                 className={`nav-link ${isActive(item.href) ? 'active text-foreground' : ''}`}
               >
                 {item.name}
               </Link>
             ))}
+            <LanguageToggle />
           </nav>
 
           {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden p-2 text-foreground"
-            aria-label="Toggle menu"
-          >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          <div className="flex items-center gap-4 lg:hidden">
+            <LanguageToggle />
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="p-2 text-foreground"
+              aria-label="Toggle menu"
+            >
+              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}
@@ -62,7 +69,7 @@ export function Header() {
             <div className="flex flex-col gap-4">
               {navItems.map((item) => (
                 <Link
-                  key={item.name}
+                  key={item.href}
                   to={item.href}
                   onClick={() => setIsMenuOpen(false)}
                   className={`nav-link py-2 ${isActive(item.href) ? 'active text-foreground' : ''}`}
