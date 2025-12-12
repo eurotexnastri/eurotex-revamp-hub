@@ -38,6 +38,13 @@ import industrialWeb3 from '@/assets/webs/industrial-3.jpg';
 import industrialWeb4 from '@/assets/webs/industrial-4.jpg';
 import industrialWeb5 from '@/assets/webs/industrial-5.jpg';
 
+// Medical & Orthopedics webs
+import medicalWeb1 from '@/assets/webs/medical-1.jpg';
+import medicalWeb2 from '@/assets/webs/medical-2.jpg';
+import medicalWeb3 from '@/assets/webs/medical-3.jpg';
+import medicalWeb4 from '@/assets/webs/medical-4.jpg';
+import medicalWeb5 from '@/assets/webs/medical-5.jpg';
+
 export interface Sector {
   id: string;
   slug: string;
@@ -140,7 +147,13 @@ export const sectors: Sector[] = [
     applicationsImage: medicalOrthopedics,
     description: 'Specialized webbings for medical devices and orthopedic supports.',
     applications: [],
-    webbings: [],
+    webbings: [
+      { title: 'Web 1', image: medicalWeb1 },
+      { title: 'Web 2', image: medicalWeb2 },
+      { title: 'Web 3', image: medicalWeb3 },
+      { title: 'Web 4', image: medicalWeb4 },
+      { title: 'Web 5', image: medicalWeb5 },
+    ],
   },
   {
     id: '6',
