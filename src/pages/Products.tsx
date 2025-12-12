@@ -1,6 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ChevronRight } from 'lucide-react';
+import { useLanguage } from '@/i18n/LanguageContext';
 
 import products1 from '@/assets/products/products-1.jpg';
 import products2 from '@/assets/products/products-2.jpg';
@@ -22,41 +23,26 @@ const productImages = [
   products8,
 ];
 
-const weavingTypes = [
-  'Plain woven, including grosgrain and binding tapes',
-  'Twill and herringbone twill',
-  'Bound tubular and plain tubular tapes',
-  'Jacquard, meaning tapes woven with lettering or logos',
-];
-
-const finishingTreatments = [
-  'Heat-setting: to give sheen and greater elasticity',
-  'Piece dyeing: to dye woven tapes in the desired color, with significant production efficiencies',
-  'Starching/finishing: to achieve full, soft, or slippery hand',
-  'Antistatic',
-  'Antibacterial',
-  'Oil- and water-repellent',
-  'Flame-retardant',
-  'Anti-abrasion',
-  'IR invisibility',
-  'Combination of different treatments',
-];
-
-const processSteps = [
-  { number: '01', title: 'Weaving', id: 'weaving' },
-  { number: '02', title: 'Finishing & Dyeing', id: 'finishing' },
-  { number: '03', title: 'Designing & Printing', id: 'design' },
-  { number: '04', title: 'Cutting & Packaging', id: 'cutting' },
-];
-
 export default function Products() {
+  const { t, language } = useLanguage();
+
+  const processSteps = [
+    { number: '01', title: t.products.steps.weaving, id: 'weaving' },
+    { number: '02', title: t.products.steps.finishing, id: 'finishing' },
+    { number: '03', title: t.products.steps.design, id: 'design' },
+    { number: '04', title: t.products.steps.cutting, id: 'cutting' },
+  ];
+
   return (
     <>
       <Helmet>
-        <title>Products - Eurotex Nastri | Webbings, Tapes & Narrow Fabrics</title>
+        <title>{language === 'it' ? 'Prodotti - Eurotex Nastri | Nastri, Fettucce e Tessuti Stretti' : 'Products - Eurotex Nastri | Webbings, Tapes & Narrow Fabrics'}</title>
         <meta
           name="description"
-          content="Explore our range of textile webbings, elastic tapes, safety belts, and technical fabrics. Custom solutions for industrial, fashion, and safety applications."
+          content={language === 'it'
+            ? 'Esplora la nostra gamma di nastri tessili, nastri elastici, cinture di sicurezza e tessuti tecnici. Soluzioni personalizzate per applicazioni industriali, moda e sicurezza.'
+            : 'Explore our range of textile webbings, elastic tapes, safety belts, and technical fabrics. Custom solutions for industrial, fashion, and safety applications.'
+          }
         />
       </Helmet>
 
@@ -65,11 +51,10 @@ export default function Products() {
         <div className="section-container">
           <div className="max-w-4xl">
             <h1 className="section-title mb-6 animate-slide-up">
-              Our Products
+              {t.products.title}
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed animate-slide-up" style={{ animationDelay: '100ms' }}>
-              A comprehensive range of textile webbings and narrow fabrics, 
-              engineered for performance and manufactured with precision.
+              {t.products.subtitle}
             </p>
           </div>
         </div>
@@ -100,7 +85,7 @@ export default function Products() {
       <section className="py-12 md:py-16 bg-secondary/30">
         <div className="section-container">
           <h2 className="text-2xl md:text-3xl font-light text-foreground text-center mb-10">
-            Our Production Process
+            {t.products.process}
           </h2>
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-0">
             {processSteps.map((step, index) => (
@@ -132,15 +117,14 @@ export default function Products() {
             <div className="flex items-center gap-4 mb-6">
               <span className="text-5xl font-light text-primary/20">01</span>
               <h2 className="text-2xl md:text-3xl font-light text-foreground">
-                Weaving
+                {t.products.weavingTitle}
               </h2>
             </div>
             <p className="text-muted-foreground leading-relaxed mb-6">
-              Eurotex's production offers a very wide range of tapes with heights between 10 and 200 millimeters, 
-              and thicknesses between 0.6 and 4 millimeters. The following categories are available:
+              {t.products.weavingIntro}
             </p>
             <ul className="space-y-3 mb-6">
-              {weavingTypes.map((type) => (
+              {t.products.weavingTypes.map((type) => (
                 <li key={type} className="flex items-start gap-3 text-muted-foreground">
                   <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
                   {type}
@@ -148,8 +132,7 @@ export default function Products() {
               ))}
             </ul>
             <p className="text-muted-foreground leading-relaxed">
-              Eurotex uses different raw materials, the main and best known being polyester, polyamide, 
-              polypropylene, cotton, linen, and aramid fibers.
+              {t.products.weavingMaterials}
             </p>
           </div>
         </div>
@@ -162,15 +145,14 @@ export default function Products() {
             <div className="flex items-center gap-4 mb-6">
               <span className="text-5xl font-light text-primary/20">02</span>
               <h2 className="text-2xl md:text-3xl font-light text-foreground">
-                Finishing & Dyeing
+                {t.products.finishingTitle}
               </h2>
             </div>
             <p className="text-muted-foreground leading-relaxed mb-6">
-              Thanks to its in-house dyeing and finishing equipment, Eurotex can offer specific 
-              enhancement treatments for woven tapes, such as:
+              {t.products.finishingIntro}
             </p>
             <ul className="space-y-3">
-              {finishingTreatments.map((treatment) => (
+              {t.products.finishingTreatments.map((treatment) => (
                 <li key={treatment} className="flex items-start gap-3 text-muted-foreground">
                   <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
                   {treatment}
@@ -188,12 +170,11 @@ export default function Products() {
             <div className="flex items-center gap-4 mb-6">
               <span className="text-5xl font-light text-primary/20">03</span>
               <h2 className="text-2xl md:text-3xl font-light text-foreground">
-                Designing & Printing
+                {t.products.designTitle}
               </h2>
             </div>
             <p className="text-muted-foreground leading-relaxed">
-              Eurotex offers customized tapes with text, logos, or designs, either woven into 
-              the tape using the Jacquard system or printed.
+              {t.products.designDesc}
             </p>
           </div>
         </div>
@@ -206,12 +187,11 @@ export default function Products() {
             <div className="flex items-center gap-4 mb-6">
               <span className="text-5xl font-light text-primary/20">04</span>
               <h2 className="text-2xl md:text-3xl font-light text-foreground">
-                Cutting & Packaging
+                {t.products.steps.cutting}
               </h2>
             </div>
             <p className="text-muted-foreground leading-relaxed">
-              Eurotex has equipment for cutting and punching tapes—both hot and ultrasonic—according 
-              to the sizes and shapes required by the customer.
+              {t.products.cuttingDesc}
             </p>
           </div>
         </div>
@@ -221,13 +201,13 @@ export default function Products() {
       <section className="py-20">
         <div className="section-container text-center">
           <h2 className="text-2xl font-light text-foreground mb-4">
-            Looking for a Specific Application?
+            {t.products.lookingFor}
           </h2>
           <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
-            Explore Eurotex's sector-specific solutions to find products tailored for your industry.
+            {t.products.exploreSectors}
           </p>
           <Link to="/sectors" className="btn-primary">
-            View Sectors & Applications
+            {t.products.viewSectors}
             <ArrowRight className="ml-2 h-4 w-4" />
           </Link>
         </div>

@@ -1,15 +1,21 @@
 import { Helmet } from 'react-helmet-async';
 import { SectorCard } from '../components/SectorCard';
 import { sectors } from '../data/sectors';
+import { useLanguage } from '@/i18n/LanguageContext';
 
 export default function Sectors() {
+  const { t, language } = useLanguage();
+
   return (
     <>
       <Helmet>
-        <title>Sectors & Applications - Eurotex Nastri | Industry Solutions</title>
+        <title>{language === 'it' ? 'Settori e Applicazioni - Eurotex Nastri | Soluzioni Industriali' : 'Sectors & Applications - Eurotex Nastri | Industry Solutions'}</title>
         <meta
           name="description"
-          content="Discover Eurotex webbings and tapes for fashion, automotive, medical, military, sports, and industrial applications. Sector-specific solutions with certified quality."
+          content={language === 'it'
+            ? 'Scopri i nastri e le fettucce Eurotex per moda, automotive, medicale, militare, sport e applicazioni industriali. Soluzioni specifiche per settore con qualità certificata.'
+            : 'Discover Eurotex webbings and tapes for fashion, automotive, medical, military, sports, and industrial applications. Sector-specific solutions with certified quality.'
+          }
         />
       </Helmet>
 
@@ -18,11 +24,10 @@ export default function Sectors() {
         <div className="section-container">
           <div className="max-w-4xl">
             <h1 className="section-title mb-6 animate-slide-up">
-              Sectors & Applications
+              {t.sectors.title}
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed animate-slide-up" style={{ animationDelay: '100ms' }}>
-              Specialized webbings and tapes for every industry. 
-              Click on a sector to explore applications and products.
+              {t.sectors.subtitle}
             </p>
           </div>
         </div>
@@ -35,7 +40,7 @@ export default function Sectors() {
             {sectors.map((sector, index) => (
               <SectorCard
                 key={sector.id}
-                title={sector.title}
+                title={language === 'it' ? sector.titleIt : sector.title}
                 image={sector.image}
                 slug={sector.slug}
                 index={index}

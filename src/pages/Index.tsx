@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { useState, useEffect, useCallback } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
+import { useLanguage } from '@/i18n/LanguageContext';
 import webbings1 from '@/assets/home/webbings-1.jpg';
 import webbings2 from '@/assets/home/webbings-2.jpg';
 import webbings3 from '@/assets/home/webbings-3.jpg';
@@ -29,6 +30,7 @@ const factoryImages = [
 ];
 
 export default function Index() {
+  const { t, language } = useLanguage();
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
   const [selectedIndex, setSelectedIndex] = useState(0);
   
@@ -83,17 +85,31 @@ export default function Index() {
     if (factoryEmblaApi) factoryEmblaApi.scrollTo(index);
   }, [factoryEmblaApi]);
 
+  const sectorList = [
+    t.home.sectorNames.personalProtection,
+    t.home.sectorNames.sportOutdoor,
+    t.home.sectorNames.furniture,
+    t.home.sectorNames.military,
+    t.home.sectorNames.industrial,
+  ];
+
   return (
     <>
       <Helmet>
-        <title>Eurotex - Technical Webbing | 100% Made in Italy Since 1974</title>
+        <title>{language === 'it' ? 'Eurotex - Nastri Tecnici | 100% Made in Italy dal 1974' : 'Eurotex - Technical Webbing | 100% Made in Italy Since 1974'}</title>
         <meta
           name="description"
-          content="Eurotex SRL - Technical webbing manufacturer. 100% Made in Italy. Expertise and technology since 1974. Premium textile webbings for industrial, fashion, safety, and technical applications."
+          content={language === 'it' 
+            ? 'Eurotex SRL - Produttore di nastri tecnici. 100% Made in Italy. Esperienza e tecnologia dal 1974. Nastri tessili premium per applicazioni industriali, moda, sicurezza e tecniche.'
+            : 'Eurotex SRL - Technical webbing manufacturer. 100% Made in Italy. Expertise and technology since 1974. Premium textile webbings for industrial, fashion, safety, and technical applications.'
+          }
         />
         <meta
           name="keywords"
-          content="technical webbing, textile webbings, narrow fabrics, industrial tapes, fashion webbings, safety belts, lifting straps, Italian manufacturer, made in Italy"
+          content={language === 'it'
+            ? 'nastri tecnici, nastri tessili, tessuti stretti, nastri industriali, nastri moda, cinture di sicurezza, fasce di sollevamento, produttore italiano, made in Italy'
+            : 'technical webbing, textile webbings, narrow fabrics, industrial tapes, fashion webbings, safety belts, lifting straps, Italian manufacturer, made in Italy'
+          }
         />
         <link rel="canonical" href="https://www.eurotexnastri.it" />
       </Helmet>
@@ -103,13 +119,13 @@ export default function Index() {
         <div className="section-container w-full">
           <div className="text-center mb-12">
             <p className="text-sm tracking-[0.3em] uppercase text-muted-foreground mb-4 animate-fade-in">
-              100% Made in Italy
+              {t.home.madeInItaly}
             </p>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight text-foreground mb-6 animate-slide-up">
-              Technical Webbing
+              {t.home.technicalWebbing}
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 animate-slide-up" style={{ animationDelay: '100ms' }}>
-              Expertise and Technology Since 1974
+              {t.home.tagline}
             </p>
           </div>
 
@@ -148,11 +164,11 @@ export default function Index() {
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-slide-up" style={{ animationDelay: '300ms' }}>
             <Link to="/sectors" className="btn-primary">
-              Explore Products
+              {t.home.exploreProducts}
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
             <Link to="/contact" className="btn-outline">
-              Get in Touch
+              {t.home.getInTouch}
             </Link>
           </div>
         </div>
@@ -163,7 +179,7 @@ export default function Index() {
         <div className="section-container">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="section-title mb-10">
-              Over 50 Years of Excellence
+              {t.home.over50Years}
             </h2>
 
             {/* Factory Carousel */}
@@ -200,10 +216,7 @@ export default function Index() {
             </div>
 
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Since 1974, Eurotex has been a leading Italian manufacturer of high-quality technical webbings and narrow fabrics. 
-              Our products serve diverse industries including automotive, fashion, medical, military, and sports. 
-              With state-of-the-art machinery and rigorous quality control, we deliver solutions that meet the 
-              most demanding specifications.
+              {t.home.intro}
             </p>
           </div>
         </div>
@@ -213,14 +226,14 @@ export default function Index() {
       <section className="py-20 bg-secondary/30">
         <div className="section-container">
           <div className="text-center mb-12">
-            <h2 className="section-title mb-4">Our Sectors</h2>
+            <h2 className="section-title mb-4">{t.home.ourSectors}</h2>
             <p className="section-subtitle mx-auto">
-              Specialized solutions for every industry
+              {t.home.specializedSolutions}
             </p>
           </div>
           
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">
-            {['Personal Protection', 'Sport and Outdoor', 'Furniture', 'Military', 'Industrial'].map((sector, index) => (
+            {sectorList.map((sector, index) => (
               <div
                 key={sector}
                 className="bg-card p-6 text-center rounded-sm shadow-subtle animate-fade-in"
@@ -233,7 +246,7 @@ export default function Index() {
           
           <div className="text-center">
             <Link to="/sectors" className="btn-outline">
-              View All Sectors
+              {t.home.viewAllSectors}
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </div>
@@ -244,13 +257,13 @@ export default function Index() {
       <section className="py-20 md:py-32">
         <div className="section-container text-center">
           <h2 className="section-title mb-6">
-            Ready to Start Your Project?
+            {t.home.readyToStart}
           </h2>
           <p className="section-subtitle mx-auto mb-8">
-            Contact us to discuss your requirements and receive a personalized quote.
+            {t.home.contactCta}
           </p>
           <Link to="/contact" className="btn-primary">
-            Contact Us
+            {t.home.contactUs}
             <ArrowRight className="ml-2 h-4 w-4" />
           </Link>
         </div>

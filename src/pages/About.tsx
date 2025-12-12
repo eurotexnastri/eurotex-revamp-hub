@@ -1,6 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import { useState, useEffect, useCallback } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
+import { useLanguage } from '@/i18n/LanguageContext';
 import factory1 from '@/assets/home/factory-1.jpg';
 import factory2 from '@/assets/home/factory-2.jpg';
 import factory3 from '@/assets/home/factory-3.jpg';
@@ -16,6 +17,7 @@ const factoryImages = [
 ];
 
 export default function About() {
+  const { t, language } = useLanguage();
   const [factoryEmblaRef, factoryEmblaApi] = useEmblaCarousel({ loop: true });
   const [factorySelectedIndex, setFactorySelectedIndex] = useState(0);
 
@@ -43,13 +45,32 @@ export default function About() {
     if (factoryEmblaApi) factoryEmblaApi.scrollTo(index);
   }, [factoryEmblaApi]);
 
+  const values = [
+    t.about.values.quality,
+    t.about.values.innovation,
+    t.about.values.reliability,
+    t.about.values.sustainability,
+  ];
+
+  const strengths = [
+    t.about.strengths.experience,
+    t.about.strengths.technology,
+    t.about.strengths.personnel,
+    t.about.strengths.facility,
+    t.about.strengths.certification,
+    t.about.strengths.madeInItaly,
+  ];
+
   return (
     <>
       <Helmet>
-        <title>Who Are We - Eurotex Nastri | Italian Textile Manufacturer</title>
+        <title>{language === 'it' ? 'Chi Siamo - Eurotex Nastri | Produttore Tessile Italiano' : 'Who Are We - Eurotex Nastri | Italian Textile Manufacturer'}</title>
         <meta
           name="description"
-          content="Learn about Eurotex SRL, an Italian textile manufacturer with over 50 years of experience in producing premium webbings and narrow fabrics."
+          content={language === 'it'
+            ? 'Scopri Eurotex SRL, un produttore tessile italiano con oltre 50 anni di esperienza nella produzione di nastri e tessuti stretti di alta qualità.'
+            : 'Learn about Eurotex SRL, an Italian textile manufacturer with over 50 years of experience in producing premium webbings and narrow fabrics.'
+          }
         />
       </Helmet>
 
@@ -58,10 +79,10 @@ export default function About() {
         <div className="section-container">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="section-title mb-6 animate-slide-up">
-              Who Are We
+              {t.about.title}
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed animate-slide-up" style={{ animationDelay: '100ms' }}>
-              A legacy of Italian craftsmanship in textile manufacturing.
+              {t.about.subtitle}
             </p>
 
             {/* Factory Carousel */}
@@ -105,46 +126,26 @@ export default function About() {
         <div className="section-container">
           <div className="grid md:grid-cols-2 gap-12 md:gap-20">
             <div className="space-y-6">
-              <h2 className="text-2xl font-light text-foreground">Our Story</h2>
+              <h2 className="text-2xl font-light text-foreground">{t.about.ourStory}</h2>
               <p className="text-muted-foreground leading-relaxed">
-                Founded in 1974, Eurotex SRL has grown from a small workshop to a leading manufacturer 
-                of textile webbings and narrow fabrics. Mr. Crippa Gian Claudio, after gaining years of 
-                experience in a traditional textile company, decided to follow his own path and founded 
-                EUROTEX—a strongly family-oriented company specializing in the production of woven tapes 
-                for various technical sectors. He did so with the clear idea that only a young, modern, 
-                and flexible company could remain competitive over time.
+                {t.about.storyP1}
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                EUROTEX's vision proved successful: the company grew, and the second generation of the 
-                Crippa family began to take an active role—both practical and managerial—with the entry 
-                of the two sons. Toward the end of the 1980s, a dyeing and finishing line for woven tapes 
-                was introduced, expanding and improving the range of products offered. In 1992, the company, 
-                now well established, moved to the modern facility where it still operates today.
+                {t.about.storyP2}
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                The constant belief that technology, professionalism, experience, and special attention 
-                to market dynamics—as well as to customer needs—were the winning tools has made EUROTEX 
-                a well-known and valued company for the production of high-quality products and a reliable 
-                partner for its clients.
+                {t.about.storyP3}
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                Thanks to its strengths, Eurotex is able to provide quick responses and fast deliveries to 
-                meet any need, even in the creation of new and exclusive products. The company's commitment to 
-                quality has earned certifications and partnerships with major brands across personal 
-                protection, furniture, military, and industrial sectors worldwide.
+                {t.about.storyP4}
               </p>
             </div>
             
             <div className="space-y-10">
               <div className="space-y-6">
-                <h2 className="text-2xl font-light text-foreground">Our Values</h2>
+                <h2 className="text-2xl font-light text-foreground">{t.about.ourValues}</h2>
                 <ul className="space-y-4">
-                  {[
-                    { title: 'Quality', desc: 'Rigorous standards at every step of production' },
-                    { title: 'Innovation', desc: 'Continuous improvement and R&D investment' },
-                    { title: 'Reliability', desc: 'Consistent delivery and customer support' },
-                    { title: 'Sustainability', desc: 'Eco-conscious materials and processes' },
-                  ].map((item) => (
+                  {values.map((item) => (
                     <li key={item.title} className="border-l-2 border-foreground/20 pl-4">
                       <h3 className="font-medium text-foreground">{item.title}</h3>
                       <p className="text-sm text-muted-foreground">{item.desc}</p>
@@ -154,16 +155,9 @@ export default function About() {
               </div>
 
               <div className="space-y-6">
-                <h2 className="text-2xl font-light text-foreground">Our Strengths</h2>
+                <h2 className="text-2xl font-light text-foreground">{t.about.ourStrengths}</h2>
                 <ul className="space-y-4">
-                  {[
-                    { title: 'Experience', desc: 'Over 50 years of expertise in woven tape production' },
-                    { title: 'Technology', desc: 'Technologically advanced machinery and equipment' },
-                    { title: 'Personnel', desc: 'Qualified and experienced team' },
-                    { title: 'Facility', desc: 'Over 3,000 m² of covered production space' },
-                    { title: 'Certification', desc: 'ISO-certified quality management system' },
-                    { title: '100% Made in Italy', desc: 'All products designed and manufactured entirely in Italy' },
-                  ].map((item) => (
+                  {strengths.map((item) => (
                     <li key={item.title} className="border-l-2 border-foreground/20 pl-4">
                       <h3 className="font-medium text-foreground">{item.title}</h3>
                       <p className="text-sm text-muted-foreground">{item.desc}</p>

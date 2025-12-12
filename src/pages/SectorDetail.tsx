@@ -2,32 +2,36 @@ import { useParams, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { ArrowLeft } from 'lucide-react';
 import { getSectorBySlug } from '../data/sectors';
+import { useLanguage } from '@/i18n/LanguageContext';
 
 export default function SectorDetail() {
   const { slug } = useParams<{ slug: string }>();
   const sector = slug ? getSectorBySlug(slug) : null;
+  const { t, language } = useLanguage();
 
   if (!sector) {
     return (
       <div className="min-h-[60vh] flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-2xl text-foreground mb-4">Sector Not Found</h1>
+          <h1 className="text-2xl text-foreground mb-4">{t.sectorNotFound.title}</h1>
           <Link to="/sectors" className="btn-outline">
             <ArrowLeft className="mr-2 h-4 w-4" />
-            Back to Sectors
+            {t.sectors.backToSectors}
           </Link>
         </div>
       </div>
     );
   }
 
+  const sectorTitle = language === 'it' ? sector.titleIt : sector.title;
+
   return (
     <>
       <Helmet>
-        <title>{sector.title} - Eurotex Nastri | Webbings & Applications</title>
+        <title>{sectorTitle} - Eurotex Nastri | {language === 'it' ? 'Nastri e Applicazioni' : 'Webbings & Applications'}</title>
         <meta
           name="description"
-          content={`${sector.description} High-quality Italian textile webbings for ${sector.title.toLowerCase()} applications.`}
+          content={`${sector.description} ${language === 'it' ? 'Nastri tessili italiani di alta qualità per applicazioni' : 'High-quality Italian textile webbings for'} ${sectorTitle.toLowerCase()}.`}
         />
       </Helmet>
 
@@ -39,12 +43,12 @@ export default function SectorDetail() {
             className="inline-flex items-center text-sm text-muted-foreground hover:text-foreground transition-colors mb-8"
           >
             <ArrowLeft className="mr-2 h-4 w-4" />
-            Back to Sectors
+            {t.sectors.backToSectors}
           </Link>
           
           <div className="max-w-4xl">
             <h1 className="section-title mb-4 animate-slide-up">
-              {sector.title}
+              {sectorTitle}
             </h1>
             <p className="text-xl text-muted-foreground animate-slide-up" style={{ animationDelay: '100ms' }}>
               {sector.description}
@@ -57,14 +61,14 @@ export default function SectorDetail() {
       <section className="py-12 md:py-20 bg-secondary/30">
         <div className="section-container">
           <h2 className="text-2xl font-light text-foreground mb-8">
-            Applications
+            {t.sectors.applications}
           </h2>
           
           {/* Applications Image */}
           <div className="mb-6">
             <img
               src={sector.applicationsImage}
-              alt={`${sector.title} applications`}
+              alt={`${sectorTitle} applications`}
               className="w-full rounded-sm"
             />
           </div>
@@ -103,7 +107,7 @@ export default function SectorDetail() {
       <section className="py-12 md:py-20">
         <div className="section-container">
           <h2 className="text-2xl font-light text-foreground mb-8">
-            Webs
+            {t.sectors.webs}
           </h2>
           
           {sector.webbings.length > 0 ? (
@@ -121,7 +125,10 @@ export default function SectorDetail() {
           ) : (
             <div className="bg-card p-8 rounded-sm text-center">
               <p className="text-muted-foreground">
-                Webbing product images will be displayed here. Please provide the images for this sector.
+                {language === 'it' 
+                  ? 'Le immagini dei prodotti nastri saranno visualizzate qui. Si prega di fornire le immagini per questo settore.'
+                  : 'Webbing product images will be displayed here. Please provide the images for this sector.'
+                }
               </p>
             </div>
           )}
@@ -132,13 +139,13 @@ export default function SectorDetail() {
       <section className="py-16 md:py-24 border-t border-border/50">
         <div className="section-container text-center">
           <h2 className="text-2xl font-light text-foreground mb-4">
-            Interested in These Products?
+            {t.sectors.interested}
           </h2>
           <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
-            Contact us for technical specifications, samples, or a custom quote.
+            {t.sectors.interestedDesc}
           </p>
           <Link to="/contact" className="btn-primary">
-            Request Information
+            {t.sectors.requestInfo}
           </Link>
         </div>
       </section>
