@@ -61,7 +61,7 @@ export default function SectorDetail() {
           </h2>
           
           {/* Applications Image */}
-          <div className="mb-8">
+          <div className="mb-6">
             <img
               src={sector.applicationsImage}
               alt={`${sector.title} applications`}
@@ -69,8 +69,15 @@ export default function SectorDetail() {
             />
           </div>
           
+          {/* Applications Text */}
+          {sector.applicationsText && (
+            <p className="text-lg text-muted-foreground">
+              {sector.applicationsText}
+            </p>
+          )}
+          
           {sector.applications.length > 0 && (
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-2 gap-8 mt-8">
               {sector.applications.map((app, index) => (
                 <div
                   key={index}
