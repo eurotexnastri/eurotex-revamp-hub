@@ -53,6 +53,16 @@ import militaryWeb4 from '@/assets/webs/military-4.jpg';
 import militaryWeb5 from '@/assets/webs/military-5.jpg';
 import militaryWeb6 from '@/assets/webs/military-6.jpg';
 
+// Personal Protection webs
+import protectionWeb1 from '@/assets/webs/personal-protection-1.jpg';
+import protectionWeb2 from '@/assets/webs/personal-protection-2.jpg';
+import protectionWeb3 from '@/assets/webs/personal-protection-3.jpg';
+import protectionWeb4 from '@/assets/webs/personal-protection-4.jpg';
+import protectionWeb5 from '@/assets/webs/personal-protection-5.jpg';
+import protectionWeb6 from '@/assets/webs/personal-protection-6.jpg';
+import protectionWeb7 from '@/assets/webs/personal-protection-7.jpg';
+import protectionWeb8 from '@/assets/webs/personal-protection-8.jpg';
+
 export interface Sector {
   id: string;
   slug: string;
@@ -190,7 +200,16 @@ export const sectors: Sector[] = [
     applicationsImage: personalProtection,
     description: 'Safety webbings for personal protective equipment.',
     applications: [],
-    webbings: [],
+    webbings: [
+      { title: 'Web 1', image: protectionWeb1 },
+      { title: 'Web 2', image: protectionWeb2 },
+      { title: 'Web 3', image: protectionWeb3 },
+      { title: 'Web 4', image: protectionWeb4 },
+      { title: 'Web 5', image: protectionWeb5 },
+      { title: 'Web 6', image: protectionWeb6 },
+      { title: 'Web 7', image: protectionWeb7 },
+      { title: 'Web 8', image: protectionWeb8 },
+    ],
   },
   {
     id: '8',
