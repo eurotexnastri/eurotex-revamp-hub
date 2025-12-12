@@ -71,6 +71,16 @@ import safetyWeb4 from '@/assets/webs/safety-belts-4.jpg';
 import safetyWeb5 from '@/assets/webs/safety-belts-5.jpg';
 import safetyWeb6 from '@/assets/webs/safety-belts-6.jpg';
 
+// Sport & Outdoor webs
+import sportWeb1 from '@/assets/webs/sport-outdoor-1.jpg';
+import sportWeb2 from '@/assets/webs/sport-outdoor-2.jpg';
+import sportWeb3 from '@/assets/webs/sport-outdoor-3.jpg';
+import sportWeb4 from '@/assets/webs/sport-outdoor-4.jpg';
+import sportWeb5 from '@/assets/webs/sport-outdoor-5.jpg';
+import sportWeb6 from '@/assets/webs/sport-outdoor-6.jpg';
+import sportWeb7 from '@/assets/webs/sport-outdoor-7.jpg';
+import sportWeb8 from '@/assets/webs/sport-outdoor-8.jpg';
+
 export interface Sector {
   id: string;
   slug: string;
@@ -246,7 +256,16 @@ export const sectors: Sector[] = [
     applicationsImage: sportOutdoor,
     description: 'Performance webbings for sports equipment and outdoor gear.',
     applications: [],
-    webbings: [],
+    webbings: [
+      { title: 'Web 1', image: sportWeb1 },
+      { title: 'Web 2', image: sportWeb2 },
+      { title: 'Web 3', image: sportWeb3 },
+      { title: 'Web 4', image: sportWeb4 },
+      { title: 'Web 5', image: sportWeb5 },
+      { title: 'Web 6', image: sportWeb6 },
+      { title: 'Web 7', image: sportWeb7 },
+      { title: 'Web 8', image: sportWeb8 },
+    ],
   },
 ];
 
