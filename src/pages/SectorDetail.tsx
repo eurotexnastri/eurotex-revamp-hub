@@ -76,7 +76,7 @@ export default function SectorDetail() {
           {/* Applications Text */}
           {sector.applicationsText && (
             <p className="text-lg text-muted-foreground">
-              {sector.applicationsText}
+              {language === 'it' ? sector.applicationsTextIt : sector.applicationsText}
             </p>
           )}
           
