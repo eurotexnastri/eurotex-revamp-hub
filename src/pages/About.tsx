@@ -126,21 +126,43 @@ export default function About() {
               </p>
             </div>
             
-            <div className="space-y-6">
-              <h2 className="text-2xl font-light text-foreground">Our Values</h2>
-              <ul className="space-y-4">
-                {[
-                  { title: 'Quality', desc: 'Rigorous standards at every step of production' },
-                  { title: 'Innovation', desc: 'Continuous improvement and R&D investment' },
-                  { title: 'Reliability', desc: 'Consistent delivery and customer support' },
-                  { title: 'Sustainability', desc: 'Eco-conscious materials and processes' },
-                ].map((item) => (
-                  <li key={item.title} className="border-l-2 border-foreground/20 pl-4">
-                    <h3 className="font-medium text-foreground">{item.title}</h3>
-                    <p className="text-sm text-muted-foreground">{item.desc}</p>
-                  </li>
-                ))}
-              </ul>
+            <div className="space-y-10">
+              <div className="space-y-6">
+                <h2 className="text-2xl font-light text-foreground">Our Values</h2>
+                <ul className="space-y-4">
+                  {[
+                    { title: 'Quality', desc: 'Rigorous standards at every step of production' },
+                    { title: 'Innovation', desc: 'Continuous improvement and R&D investment' },
+                    { title: 'Reliability', desc: 'Consistent delivery and customer support' },
+                    { title: 'Sustainability', desc: 'Eco-conscious materials and processes' },
+                  ].map((item) => (
+                    <li key={item.title} className="border-l-2 border-foreground/20 pl-4">
+                      <h3 className="font-medium text-foreground">{item.title}</h3>
+                      <p className="text-sm text-muted-foreground">{item.desc}</p>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="space-y-6">
+                <h2 className="text-2xl font-light text-foreground">Our Strengths</h2>
+                <ul className="space-y-4">
+                  {[
+                    { title: 'Experience', desc: 'Over 50 years of expertise in woven tape production' },
+                    { title: 'Technology', desc: 'Technologically advanced machinery and equipment' },
+                    { title: 'Personnel', desc: 'Qualified and experienced team' },
+                    { title: 'Facility', desc: 'Over 3,000 m² of covered production space' },
+                    { title: 'Stock', desc: 'Large quantities and variety of raw materials available' },
+                    { title: 'In-house Finishing', desc: 'Complete dyeing and finishing capabilities on-site' },
+                    { title: 'Certification', desc: 'ISO-certified quality management system' },
+                  ].map((item) => (
+                    <li key={item.title} className="border-l-2 border-foreground/20 pl-4">
+                      <h3 className="font-medium text-foreground">{item.title}</h3>
+                      <p className="text-sm text-muted-foreground">{item.desc}</p>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
         </div>
