@@ -63,6 +63,14 @@ import protectionWeb6 from '@/assets/webs/personal-protection-6.jpg';
 import protectionWeb7 from '@/assets/webs/personal-protection-7.jpg';
 import protectionWeb8 from '@/assets/webs/personal-protection-8.jpg';
 
+// Safety Belts webs
+import safetyWeb1 from '@/assets/webs/safety-belts-1.jpg';
+import safetyWeb2 from '@/assets/webs/safety-belts-2.jpg';
+import safetyWeb3 from '@/assets/webs/safety-belts-3.jpg';
+import safetyWeb4 from '@/assets/webs/safety-belts-4.jpg';
+import safetyWeb5 from '@/assets/webs/safety-belts-5.jpg';
+import safetyWeb6 from '@/assets/webs/safety-belts-6.jpg';
+
 export interface Sector {
   id: string;
   slug: string;
@@ -220,7 +228,14 @@ export const sectors: Sector[] = [
     applicationsImage: safetyBelts,
     description: 'High-quality webbings for safety belt systems.',
     applications: [],
-    webbings: [],
+    webbings: [
+      { title: 'Web 1', image: safetyWeb1 },
+      { title: 'Web 2', image: safetyWeb2 },
+      { title: 'Web 3', image: safetyWeb3 },
+      { title: 'Web 4', image: safetyWeb4 },
+      { title: 'Web 5', image: safetyWeb5 },
+      { title: 'Web 6', image: safetyWeb6 },
+    ],
   },
   {
     id: '9',
