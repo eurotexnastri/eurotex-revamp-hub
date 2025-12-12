@@ -54,7 +54,7 @@ export default function About() {
       </Helmet>
 
       {/* Hero */}
-      <section className="py-20 md:py-32">
+      <section className="py-16 md:py-24">
         <div className="section-container">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="section-title mb-6 animate-slide-up">
@@ -128,9 +128,9 @@ export default function About() {
                 partner for its clients.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                Thanks to our strengths, we are able to provide quick responses and fast deliveries to 
-                meet any need, even in the creation of new and exclusive products. Our commitment to 
-                quality has earned us certifications and partnerships with major brands across personal 
+                Thanks to its strengths, Eurotex is able to provide quick responses and fast deliveries to 
+                meet any need, even in the creation of new and exclusive products. The company's commitment to 
+                quality has earned certifications and partnerships with major brands across personal 
                 protection, furniture, military, and industrial sectors worldwide.
               </p>
             </div>
