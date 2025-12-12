@@ -44,8 +44,8 @@ const finishingTreatments = [
 
 const processSteps = [
   { number: '01', title: 'Weaving', id: 'weaving' },
-  { number: '02', title: 'Finishing', id: 'finishing' },
-  { number: '03', title: 'Design', id: 'design' },
+  { number: '02', title: 'Finishing & Dyeing', id: 'finishing' },
+  { number: '03', title: 'Designing & Printing', id: 'design' },
   { number: '04', title: 'Cutting & Packaging', id: 'cutting' },
 ];
 
@@ -162,7 +162,7 @@ export default function Products() {
             <div className="flex items-center gap-4 mb-6">
               <span className="text-5xl font-light text-primary/20">02</span>
               <h2 className="text-2xl md:text-3xl font-light text-foreground">
-                Finishing
+                Finishing & Dyeing
               </h2>
             </div>
             <p className="text-muted-foreground leading-relaxed mb-6">
@@ -188,7 +188,7 @@ export default function Products() {
             <div className="flex items-center gap-4 mb-6">
               <span className="text-5xl font-light text-primary/20">03</span>
               <h2 className="text-2xl md:text-3xl font-light text-foreground">
-                Design
+                Designing & Printing
               </h2>
             </div>
             <p className="text-muted-foreground leading-relaxed">
