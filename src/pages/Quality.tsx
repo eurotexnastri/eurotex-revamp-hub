@@ -1,6 +1,8 @@
 import { Helmet } from 'react-helmet-async';
 import { Award, ShieldCheck } from 'lucide-react';
 import { useLanguage } from '@/i18n/LanguageContext';
+import dasaLogo from '@/assets/quality/dasa-logo.png';
+import oekotexLogo from '@/assets/quality/oekotex-logo.png';
 
 
 export default function Quality() {
@@ -55,6 +57,24 @@ export default function Quality() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Certification Logos */}
+      <section className="py-20 md:py-28">
+        <div className="section-container">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-16 md:gap-24">
+            <img 
+              src={dasaLogo} 
+              alt="Dasa-Rägister - UNI EN ISO 9001:2015" 
+              className="h-24 md:h-28 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity"
+            />
+            <img 
+              src={oekotexLogo} 
+              alt="OEKO-TEX Standard 100" 
+              className="h-28 md:h-32 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity"
+            />
           </div>
         </div>
       </section>
