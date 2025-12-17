@@ -1,14 +1,15 @@
 import { Helmet } from 'react-helmet-async';
-import { Award, ShieldCheck } from 'lucide-react';
 import { useLanguage } from '@/i18n/LanguageContext';
+import isoLogo from '@/assets/quality/iso-logo.png';
+import oekotexLogo from '@/assets/quality/oekotex-logo.png';
 
 
 export default function Quality() {
   const { t, language } = useLanguage();
 
   const qualityItems = [
-    { icon: Award, title: t.quality.iso.title, desc: t.quality.iso.desc },
-    { icon: ShieldCheck, title: t.quality.oeko.title, desc: t.quality.oeko.desc },
+    { image: isoLogo, title: t.quality.iso.title, desc: t.quality.iso.desc },
+    { image: oekotexLogo, title: t.quality.oeko.title, desc: t.quality.oeko.desc },
   ];
 
   return (
@@ -47,7 +48,7 @@ export default function Quality() {
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="flex-shrink-0">
-                  <item.icon className="w-12 h-12 text-primary" />
+                  <img src={item.image} alt={item.title} className="w-16 h-16 object-contain" />
                 </div>
                 <div>
                   <h2 className="font-semibold text-foreground text-lg mb-3">{item.title}</h2>
