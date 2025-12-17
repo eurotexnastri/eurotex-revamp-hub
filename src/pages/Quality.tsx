@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import { Award, ShieldCheck } from 'lucide-react';
 import { useLanguage } from '@/i18n/LanguageContext';
-import qualityBanner from '@/assets/quality/quality-banner.png';
+
 
 export default function Quality() {
   const { t, language } = useLanguage();
@@ -59,18 +59,6 @@ export default function Quality() {
         </div>
       </section>
 
-      {/* Quality Banner Image */}
-      <section className="py-20 md:py-28">
-        <div className="section-container">
-          <div className="max-w-3xl mx-auto">
-            <img 
-              src={qualityBanner} 
-              alt={language === 'it' ? 'Qualità Certificata Eurotex' : 'Eurotex Certified Quality'} 
-              className="w-full h-auto rounded-sm shadow-card"
-            />
-          </div>
-        </div>
-      </section>
     </>
   );
 }
