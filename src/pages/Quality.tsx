@@ -1,6 +1,7 @@
 import { Helmet } from 'react-helmet-async';
-import { Award, ShieldCheck, Star, Cpu } from 'lucide-react';
+import { Award, ShieldCheck } from 'lucide-react';
 import { useLanguage } from '@/i18n/LanguageContext';
+import qualityBanner from '@/assets/quality/quality-banner.png';
 
 export default function Quality() {
   const { t, language } = useLanguage();
@@ -8,8 +9,6 @@ export default function Quality() {
   const qualityItems = [
     { icon: Award, title: t.quality.iso.title, desc: t.quality.iso.desc },
     { icon: ShieldCheck, title: t.quality.oeko.title, desc: t.quality.oeko.desc },
-    { icon: Star, title: t.quality.excellence.title, desc: t.quality.excellence.desc },
-    { icon: Cpu, title: t.quality.innovation.title, desc: t.quality.innovation.desc },
   ];
 
   return (
@@ -60,12 +59,16 @@ export default function Quality() {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* Quality Banner Image */}
       <section className="py-20 md:py-28">
-        <div className="section-container text-center">
-          <p className="text-xl md:text-2xl font-medium text-foreground max-w-3xl mx-auto">
-            {t.quality.cta}
-          </p>
+        <div className="section-container">
+          <div className="max-w-3xl mx-auto">
+            <img 
+              src={qualityBanner} 
+              alt={language === 'it' ? 'Qualità Certificata Eurotex' : 'Eurotex Certified Quality'} 
+              className="w-full h-auto rounded-sm shadow-card"
+            />
+          </div>
         </div>
       </section>
     </>
