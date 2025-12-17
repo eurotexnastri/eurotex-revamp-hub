@@ -1,5 +1,5 @@
-import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-import { translations, Language } from './translations';
+import { createContext, useContext, useState, useEffect, type ReactNode } from 'react';
+import { translations, type Language } from './translations';
 
 type TranslationType = typeof translations.en | typeof translations.it;
 
