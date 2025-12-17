@@ -135,7 +135,21 @@ export const translations = {
       message: 'Message',
       messagePlaceholder: 'Your message...',
       send: 'Send Message',
+      sending: 'Sending...',
       findUs: 'Find Us',
+      successMessage: 'Thank you for your message! We will get back to you soon.',
+      errorMessage: 'There was an error sending your message. Please try again.',
+      validation: {
+        nameRequired: 'Name is required',
+        nameMax: 'Name must be less than 100 characters',
+        emailRequired: 'Email is required',
+        emailInvalid: 'Please enter a valid email address',
+        emailMax: 'Email must be less than 255 characters',
+        subjectRequired: 'Subject is required',
+        subjectMax: 'Subject must be less than 200 characters',
+        messageRequired: 'Message is required',
+        messageMax: 'Message must be less than 2000 characters',
+      },
     },
     
     // Footer
@@ -291,7 +305,21 @@ export const translations = {
       message: 'Messaggio',
       messagePlaceholder: 'Il tuo messaggio...',
       send: 'Invia Messaggio',
+      sending: 'Invio in corso...',
       findUs: 'Dove Siamo',
+      successMessage: 'Grazie per il tuo messaggio! Ti risponderemo presto.',
+      errorMessage: "Si è verificato un errore durante l'invio del messaggio. Riprova.",
+      validation: {
+        nameRequired: 'Il nome è obbligatorio',
+        nameMax: 'Il nome deve essere inferiore a 100 caratteri',
+        emailRequired: "L'email è obbligatoria",
+        emailInvalid: 'Inserisci un indirizzo email valido',
+        emailMax: "L'email deve essere inferiore a 255 caratteri",
+        subjectRequired: "L'oggetto è obbligatorio",
+        subjectMax: "L'oggetto deve essere inferiore a 200 caratteri",
+        messageRequired: 'Il messaggio è obbligatorio',
+        messageMax: 'Il messaggio deve essere inferiore a 2000 caratteri',
+      },
     },
     
     // Footer

@@ -58,6 +58,29 @@ const ChartContainer = React.forwardRef<
 });
 ChartContainer.displayName = "Chart";
 
+// Validate CSS color values to prevent CSS injection
+// Accepts: hex colors (#fff, #ffffff), rgb(), rgba(), hsl(), hsla(), and CSS color keywords
+const isValidCSSColor = (color: string): boolean => {
+  if (!color || typeof color !== 'string') return false;
+  
+  // Sanitize: remove any dangerous characters that could break CSS context
+  const dangerousChars = /[<>{}();'"\\]/;
+  if (dangerousChars.test(color.replace(/\([\d\s,%.]+\)/g, ''))) return false;
+  
+  // Valid patterns
+  const hexPattern = /^#([0-9A-Fa-f]{3}|[0-9A-Fa-f]{6}|[0-9A-Fa-f]{8})$/;
+  const rgbPattern = /^rgba?\(\s*\d{1,3}\s*,\s*\d{1,3}\s*,\s*\d{1,3}\s*(,\s*(0|1|0?\.\d+))?\s*\)$/;
+  const hslPattern = /^hsla?\(\s*\d{1,3}\s*,\s*\d{1,3}%?\s*,\s*\d{1,3}%?\s*(,\s*(0|1|0?\.\d+))?\s*\)$/;
+  const cssVarPattern = /^var\(--[\w-]+\)$/;
+  
+  return hexPattern.test(color) || rgbPattern.test(color) || hslPattern.test(color) || cssVarPattern.test(color);
+};
+
+// Sanitize CSS key to prevent injection via property names
+const sanitizeCSSKey = (key: string): string => {
+  return key.replace(/[^a-zA-Z0-9-_]/g, '');
+};
+
 const ChartStyle = ({ id, config }: { id: string; config: ChartConfig }) => {
   const colorConfig = Object.entries(config).filter(([, config]) => config.theme || config.color);
 
@@ -75,8 +98,14 @@ ${prefix} [data-chart=${id}] {
 ${colorConfig
   .map(([key, itemConfig]) => {
     const color = itemConfig.theme?.[theme as keyof typeof itemConfig.theme] || itemConfig.color;
-    return color ? `  --color-${key}: ${color};` : null;
+    // Validate color before including in CSS
+    if (color && isValidCSSColor(color)) {
+      const safeKey = sanitizeCSSKey(key);
+      return `  --color-${safeKey}: ${color};`;
+    }
+    return null;
   })
+  .filter(Boolean)
   .join("\n")}
 }
 `,
