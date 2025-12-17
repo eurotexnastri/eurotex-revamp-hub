@@ -8,6 +8,7 @@ export const translations = {
       whoAreWe: 'Who Are We',
       products: 'Products',
       sectors: 'Sectors & Applications',
+      quality: 'Quality',
       contact: 'Contact',
     },
     
@@ -201,6 +202,7 @@ export const translations = {
       whoAreWe: 'Chi Siamo',
       products: 'Prodotti',
       sectors: 'Settori e Applicazioni',
+      quality: 'Qualità',
       contact: 'Contatti',
     },
     

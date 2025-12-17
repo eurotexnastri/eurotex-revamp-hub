@@ -15,6 +15,7 @@ export function Header() {
     { name: t.nav.whoAreWe, href: '/about' },
     { name: t.nav.products, href: '/products' },
     { name: t.nav.sectors, href: '/sectors' },
+    { name: t.nav.quality, href: '/quality' },
     { name: t.nav.contact, href: '/contact' },
   ];
 
