@@ -9,7 +9,7 @@ import safetyBelts from '@/assets/sectors/safety-belts.png';
 import sportOutdoor from '@/assets/sectors/sport-outdoor.png';
 
 // Sector card images
-import apparelFashionCard from '@/assets/sectors/apparel-fashion.webp';
+import apparelFashionCard from '@/assets/sectors/apparel-fashion.jpg';
 import earlyChildhoodCard from '@/assets/sectors/early-childhood.jpg';
 import furnitureCard from '@/assets/sectors/furniture.jpg';
 import industrialCard from '@/assets/sectors/industrial-lifting-transport.jpg';
