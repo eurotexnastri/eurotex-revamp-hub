@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Award, ShieldCheck, Star, Cpu } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { useState, useEffect, useCallback } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import { useLanguage } from '@/i18n/LanguageContext';
@@ -253,44 +253,6 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Quality Section */}
-      <section className="py-20 md:py-32">
-        <div className="section-container">
-          <div className="text-center mb-12">
-            <h2 className="section-title mb-4">{t.quality.title}</h2>
-            <p className="section-subtitle mx-auto">
-              {t.quality.subtitle}
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-12">
-            {[
-              { icon: Award, title: t.quality.iso.title, desc: t.quality.iso.desc },
-              { icon: ShieldCheck, title: t.quality.oeko.title, desc: t.quality.oeko.desc },
-              { icon: Star, title: t.quality.excellence.title, desc: t.quality.excellence.desc },
-              { icon: Cpu, title: t.quality.innovation.title, desc: t.quality.innovation.desc },
-            ].map((item, index) => (
-              <div
-                key={item.title}
-                className="bg-card p-6 rounded-sm shadow-subtle animate-fade-in flex gap-4"
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                <div className="flex-shrink-0">
-                  <item.icon className="w-10 h-10 text-primary" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-foreground mb-2">{item.title}</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-          
-          <p className="text-center text-lg font-medium text-foreground max-w-2xl mx-auto">
-            {t.quality.cta}
-          </p>
-        </div>
-      </section>
 
       {/* CTA Section */}
       <section className="py-20 md:py-32">
