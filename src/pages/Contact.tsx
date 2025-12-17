@@ -1,10 +1,83 @@
+import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Mail, Phone, MapPin, Printer } from 'lucide-react';
+import { Mail, Phone, MapPin, Printer, CheckCircle, AlertCircle } from 'lucide-react';
 import { useLanguage } from '@/i18n/LanguageContext';
+import { useForm } from 'react-hook-form';
+import { z } from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
 import buildingImage from '@/assets/contact/building.jpg';
+
+// Contact form validation schema
+const createContactSchema = (validation: {
+  nameRequired: string;
+  nameMax: string;
+  emailRequired: string;
+  emailInvalid: string;
+  emailMax: string;
+  subjectRequired: string;
+  subjectMax: string;
+  messageRequired: string;
+  messageMax: string;
+}) => z.object({
+  name: z.string()
+    .trim()
+    .min(1, validation.nameRequired)
+    .max(100, validation.nameMax),
+  email: z.string()
+    .trim()
+    .min(1, validation.emailRequired)
+    .email(validation.emailInvalid)
+    .max(255, validation.emailMax),
+  subject: z.string()
+    .trim()
+    .min(1, validation.subjectRequired)
+    .max(200, validation.subjectMax),
+  message: z.string()
+    .trim()
+    .min(1, validation.messageRequired)
+    .max(2000, validation.messageMax),
+});
+
+type ContactFormData = z.infer<ReturnType<typeof createContactSchema>>;
 
 export default function Contact() {
   const { t, language } = useLanguage();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  const contactSchema = createContactSchema(t.contact.validation);
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<ContactFormData>({
+    resolver: zodResolver(contactSchema),
+  });
+
+  const onSubmit = async (data: ContactFormData) => {
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      // Create mailto link with validated and encoded data
+      const mailtoLink = `mailto:info@eurotexnastri.it?subject=${encodeURIComponent(data.subject)}&body=${encodeURIComponent(
+        `Name: ${data.name}\nEmail: ${data.email}\n\nMessage:\n${data.message}`
+      )}`;
+      
+      // Open email client
+      window.location.href = mailtoLink;
+      
+      // Show success and reset form
+      setSubmitStatus('success');
+      reset();
+    } catch {
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <>
@@ -109,7 +182,22 @@ export default function Contact() {
             <div className="bg-card p-8 rounded-sm shadow-subtle">
               <h2 className="text-xl font-medium text-foreground mb-6">{t.contact.sendMessage}</h2>
               
-              <form className="space-y-4">
+              {/* Status Messages */}
+              {submitStatus === 'success' && (
+                <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-sm flex items-center gap-3">
+                  <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0" />
+                  <p className="text-green-700 text-sm">{t.contact.successMessage}</p>
+                </div>
+              )}
+              
+              {submitStatus === 'error' && (
+                <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-sm flex items-center gap-3">
+                  <AlertCircle className="h-5 w-5 text-red-600 flex-shrink-0" />
+                  <p className="text-red-700 text-sm">{t.contact.errorMessage}</p>
+                </div>
+              )}
+              
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-4" noValidate>
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-foreground mb-1">
                     {t.contact.name}
@@ -117,10 +205,19 @@ export default function Contact() {
                   <input
                     type="text"
                     id="name"
-                    name="name"
-                    className="w-full px-4 py-2 bg-background border border-border rounded-sm focus:outline-none focus:ring-2 focus:ring-ring"
+                    {...register('name')}
+                    className={`w-full px-4 py-2 bg-background border rounded-sm focus:outline-none focus:ring-2 focus:ring-ring ${
+                      errors.name ? 'border-red-500' : 'border-border'
+                    }`}
                     placeholder={t.contact.namePlaceholder}
+                    aria-invalid={errors.name ? 'true' : 'false'}
+                    aria-describedby={errors.name ? 'name-error' : undefined}
                   />
+                  {errors.name && (
+                    <p id="name-error" className="mt-1 text-sm text-red-600" role="alert">
+                      {errors.name.message}
+                    </p>
+                  )}
                 </div>
 
                 <div>
@@ -130,10 +227,19 @@ export default function Contact() {
                   <input
                     type="email"
                     id="email"
-                    name="email"
-                    className="w-full px-4 py-2 bg-background border border-border rounded-sm focus:outline-none focus:ring-2 focus:ring-ring"
+                    {...register('email')}
+                    className={`w-full px-4 py-2 bg-background border rounded-sm focus:outline-none focus:ring-2 focus:ring-ring ${
+                      errors.email ? 'border-red-500' : 'border-border'
+                    }`}
                     placeholder={t.contact.emailPlaceholder}
+                    aria-invalid={errors.email ? 'true' : 'false'}
+                    aria-describedby={errors.email ? 'email-error' : undefined}
                   />
+                  {errors.email && (
+                    <p id="email-error" className="mt-1 text-sm text-red-600" role="alert">
+                      {errors.email.message}
+                    </p>
+                  )}
                 </div>
 
                 <div>
@@ -143,10 +249,19 @@ export default function Contact() {
                   <input
                     type="text"
                     id="subject"
-                    name="subject"
-                    className="w-full px-4 py-2 bg-background border border-border rounded-sm focus:outline-none focus:ring-2 focus:ring-ring"
+                    {...register('subject')}
+                    className={`w-full px-4 py-2 bg-background border rounded-sm focus:outline-none focus:ring-2 focus:ring-ring ${
+                      errors.subject ? 'border-red-500' : 'border-border'
+                    }`}
                     placeholder={t.contact.subjectPlaceholder}
+                    aria-invalid={errors.subject ? 'true' : 'false'}
+                    aria-describedby={errors.subject ? 'subject-error' : undefined}
                   />
+                  {errors.subject && (
+                    <p id="subject-error" className="mt-1 text-sm text-red-600" role="alert">
+                      {errors.subject.message}
+                    </p>
+                  )}
                 </div>
 
                 <div>
@@ -155,15 +270,28 @@ export default function Contact() {
                   </label>
                   <textarea
                     id="message"
-                    name="message"
                     rows={4}
-                    className="w-full px-4 py-2 bg-background border border-border rounded-sm focus:outline-none focus:ring-2 focus:ring-ring resize-none"
+                    {...register('message')}
+                    className={`w-full px-4 py-2 bg-background border rounded-sm focus:outline-none focus:ring-2 focus:ring-ring resize-none ${
+                      errors.message ? 'border-red-500' : 'border-border'
+                    }`}
                     placeholder={t.contact.messagePlaceholder}
+                    aria-invalid={errors.message ? 'true' : 'false'}
+                    aria-describedby={errors.message ? 'message-error' : undefined}
                   />
+                  {errors.message && (
+                    <p id="message-error" className="mt-1 text-sm text-red-600" role="alert">
+                      {errors.message.message}
+                    </p>
+                  )}
                 </div>
 
-                <button type="submit" className="btn-primary w-full">
-                  {t.contact.send}
+                <button 
+                  type="submit" 
+                  className="btn-primary w-full disabled:opacity-50 disabled:cursor-not-allowed"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? t.contact.sending : t.contact.send}
                 </button>
               </form>
             </div>
