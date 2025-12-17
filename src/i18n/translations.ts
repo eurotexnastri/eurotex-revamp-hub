@@ -117,6 +117,29 @@ export const translations = {
       requestInfo: 'Request Information',
     },
     
+    // Quality section
+    quality: {
+      title: 'Certified Quality at Eurotex',
+      subtitle: 'At Eurotex, quality is a core value that guides every aspect of our work.',
+      iso: {
+        title: 'ISO 9001 Certified',
+        desc: 'Our quality management system complies with international standards, ensuring reliable processes, efficiency, and continuous improvement.',
+      },
+      oeko: {
+        title: 'Oeko-Tex® Certified',
+        desc: 'Our textiles are tested and certified to be free from harmful substances, guaranteeing safety for people and respect for the environment.',
+      },
+      excellence: {
+        title: 'Commitment to Excellence',
+        desc: 'Quality, sustainability, and responsibility are at the heart of our production philosophy.',
+      },
+      innovation: {
+        title: 'Innovation & Technology',
+        desc: 'We invest in advanced technologies and strict testing procedures to deliver high-performance and visually refined textile solutions.',
+      },
+      cta: 'Choosing Eurotex means relying on certified quality, safety, and innovation.',
+    },
+    
     // Contact page
     contact: {
       title: 'Contact Us',
@@ -285,6 +308,29 @@ export const translations = {
       interested: 'Interessati a Questi Prodotti?',
       interestedDesc: 'Contattateci per specifiche tecniche, campioni o un preventivo personalizzato.',
       requestInfo: 'Richiedi Informazioni',
+    },
+    
+    // Quality section
+    quality: {
+      title: 'Qualità Certificata Eurotex',
+      subtitle: 'In Eurotex, la qualità è un valore fondamentale che guida ogni fase del nostro lavoro.',
+      iso: {
+        title: 'Certificazione ISO 9001',
+        desc: 'Il nostro sistema di gestione della qualità è conforme agli standard internazionali, garantendo processi affidabili, efficienza e miglioramento continuo.',
+      },
+      oeko: {
+        title: 'Certificazione Oeko-Tex®',
+        desc: 'I nostri tessuti sono testati e certificati privi di sostanze nocive, a tutela della salute delle persone e dell\'ambiente.',
+      },
+      excellence: {
+        title: 'Impegno per l\'Eccellenza',
+        desc: 'Qualità, sostenibilità e responsabilità sono al centro della nostra filosofia produttiva.',
+      },
+      innovation: {
+        title: 'Innovazione e Tecnologia',
+        desc: 'Investiamo in tecnologie avanzate e controlli rigorosi per offrire soluzioni tessili performanti ed esteticamente curate.',
+      },
+      cta: 'Scegliere Eurotex significa affidarsi a qualità certificata, sicurezza e innovazione.',
     },
     
     // Contact page
