@@ -13,6 +13,7 @@ import Sectors from "./pages/Sectors";
 import SectorDetail from "./pages/SectorDetail";
 import Quality from "./pages/Quality";
 import Contact from "./pages/Contact";
+import Privacy from "./pages/Privacy";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -34,6 +35,7 @@ const App = () => (
                 <Route path="/sectors/:slug" element={<SectorDetail />} />
                 <Route path="/quality" element={<Quality />} />
                 <Route path="/contact" element={<Contact />} />
+                <Route path="/privacy" element={<Privacy />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </Layout>

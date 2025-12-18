@@ -180,6 +180,124 @@ export const translations = {
     footer: {
       privacy: 'Privacy Policy',
       contact: 'Contact',
+      cookieSettings: 'Cookie Settings',
+    },
+    
+    // Privacy Policy
+    privacy: {
+      title: 'Privacy Policy',
+      lastUpdated: 'Last updated',
+      intro: 'Eurotex SRL ("we", "us", or "our") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and protect your personal information when you visit our website.',
+      dataController: {
+        title: 'Data Controller',
+        content: 'The data controller responsible for your personal data is:',
+        company: 'Eurotex SRL',
+        address: 'Via Enrico Fermi 10, 20854 Vedano al Lambro (MB), Italy',
+        vatNumber: 'VAT Number: IT09835600157',
+      },
+      dataCollected: {
+        title: 'Information We Collect',
+        intro: 'We may collect the following types of information:',
+        items: [
+          'Contact information (name, email address) when you submit our contact form',
+          'Technical data (IP address, browser type, device information) for website functionality',
+          'Usage data (pages visited, time spent) for analytics purposes',
+          'Cookie preferences you provide through our consent banner',
+        ],
+      },
+      purpose: {
+        title: 'How We Use Your Information',
+        intro: 'We use your personal data for the following purposes:',
+        items: [
+          'To respond to your inquiries and provide customer support',
+          'To improve our website and user experience',
+          'To comply with legal obligations',
+          'To protect our legitimate business interests',
+        ],
+      },
+      legalBasis: {
+        title: 'Legal Basis for Processing',
+        intro: 'We process your personal data based on:',
+        items: [
+          'Your consent (for cookies and marketing communications)',
+          'Contractual necessity (to respond to your inquiries)',
+          'Legitimate interests (to improve our services)',
+          'Legal obligations (to comply with applicable laws)',
+        ],
+      },
+      cookies: {
+        title: 'Cookies',
+        intro: 'Our website uses cookies to enhance your browsing experience. Cookies are categorized as:',
+        necessary: {
+          title: 'Necessary Cookies',
+          desc: 'Essential for website functionality. These cannot be disabled.',
+        },
+        analytics: {
+          title: 'Analytics Cookies',
+          desc: 'Help us understand how visitors interact with our website.',
+        },
+        marketing: {
+          title: 'Marketing Cookies',
+          desc: 'Used to deliver personalized advertisements.',
+        },
+        manage: 'You can manage your cookie preferences at any time by clicking "Cookie Settings" in the footer.',
+      },
+      rights: {
+        title: 'Your Rights',
+        intro: 'Under GDPR, you have the following rights:',
+        items: [
+          'Right to access your personal data',
+          'Right to rectification of inaccurate data',
+          'Right to erasure ("right to be forgotten")',
+          'Right to restrict processing',
+          'Right to data portability',
+          'Right to object to processing',
+          'Right to withdraw consent at any time',
+        ],
+        exercise: 'To exercise any of these rights, please contact us using the details below.',
+      },
+      retention: {
+        title: 'Data Retention',
+        content: 'We retain your personal data only for as long as necessary to fulfill the purposes for which it was collected, or as required by law. Contact form submissions are retained for up to 2 years.',
+      },
+      security: {
+        title: 'Data Security',
+        content: 'We implement appropriate technical and organizational measures to protect your personal data against unauthorized access, alteration, disclosure, or destruction.',
+      },
+      thirdParty: {
+        title: 'Third-Party Sharing',
+        content: 'We do not sell your personal data. We may share your information with trusted service providers who assist us in operating our website, subject to strict confidentiality agreements.',
+      },
+      contact: {
+        title: 'Contact Us',
+        content: 'For any questions about this Privacy Policy or to exercise your data protection rights, please contact us:',
+      },
+      changes: {
+        title: 'Changes to This Policy',
+        content: 'We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated revision date.',
+      },
+    },
+    
+    // Cookie Consent
+    cookieConsent: {
+      title: 'Cookie Settings',
+      description: 'We use cookies to enhance your browsing experience. Please choose your preferences below.',
+      necessary: {
+        title: 'Necessary Cookies',
+        desc: 'Essential for the website to function properly. These cookies cannot be disabled.',
+      },
+      analytics: {
+        title: 'Analytics Cookies',
+        desc: 'Help us understand how visitors use our website to improve our services.',
+      },
+      marketing: {
+        title: 'Marketing Cookies',
+        desc: 'Used to deliver relevant advertisements and track campaign effectiveness.',
+      },
+      acceptAll: 'Accept All',
+      rejectAll: 'Reject All',
+      savePreferences: 'Save Preferences',
+      privacyLink: 'Read our Privacy Policy',
     },
     
     // 404 page
@@ -374,6 +492,124 @@ export const translations = {
     footer: {
       privacy: 'Privacy Policy',
       contact: 'Contatti',
+      cookieSettings: 'Impostazioni Cookie',
+    },
+    
+    // Privacy Policy
+    privacy: {
+      title: 'Informativa sulla Privacy',
+      lastUpdated: 'Ultimo aggiornamento',
+      intro: 'Eurotex SRL ("noi", "ci" o "nostro") si impegna a proteggere la vostra privacy. Questa Informativa sulla Privacy spiega come raccogliamo, utilizziamo e proteggiamo le vostre informazioni personali quando visitate il nostro sito web.',
+      dataController: {
+        title: 'Titolare del Trattamento',
+        content: 'Il titolare del trattamento responsabile dei vostri dati personali è:',
+        company: 'Eurotex SRL',
+        address: 'Via Enrico Fermi 10, 20854 Vedano al Lambro (MB), Italia',
+        vatNumber: 'Partita IVA: IT09835600157',
+      },
+      dataCollected: {
+        title: 'Informazioni che Raccogliamo',
+        intro: 'Possiamo raccogliere i seguenti tipi di informazioni:',
+        items: [
+          'Informazioni di contatto (nome, indirizzo email) quando inviate il modulo di contatto',
+          'Dati tecnici (indirizzo IP, tipo di browser, informazioni sul dispositivo) per la funzionalità del sito',
+          'Dati di utilizzo (pagine visitate, tempo trascorso) per scopi analitici',
+          'Preferenze sui cookie che fornite tramite il nostro banner di consenso',
+        ],
+      },
+      purpose: {
+        title: 'Come Utilizziamo le Vostre Informazioni',
+        intro: 'Utilizziamo i vostri dati personali per i seguenti scopi:',
+        items: [
+          'Per rispondere alle vostre richieste e fornire assistenza clienti',
+          'Per migliorare il nostro sito web e l\'esperienza utente',
+          'Per adempiere agli obblighi legali',
+          'Per proteggere i nostri legittimi interessi commerciali',
+        ],
+      },
+      legalBasis: {
+        title: 'Base Giuridica del Trattamento',
+        intro: 'Trattiamo i vostri dati personali sulla base di:',
+        items: [
+          'Il vostro consenso (per i cookie e le comunicazioni di marketing)',
+          'Necessità contrattuale (per rispondere alle vostre richieste)',
+          'Interessi legittimi (per migliorare i nostri servizi)',
+          'Obblighi legali (per conformarsi alle leggi applicabili)',
+        ],
+      },
+      cookies: {
+        title: 'Cookie',
+        intro: 'Il nostro sito web utilizza i cookie per migliorare la vostra esperienza di navigazione. I cookie sono classificati come:',
+        necessary: {
+          title: 'Cookie Necessari',
+          desc: 'Essenziali per la funzionalità del sito web. Non possono essere disabilitati.',
+        },
+        analytics: {
+          title: 'Cookie Analitici',
+          desc: 'Ci aiutano a capire come i visitatori interagiscono con il nostro sito web.',
+        },
+        marketing: {
+          title: 'Cookie di Marketing',
+          desc: 'Utilizzati per fornire pubblicità personalizzate.',
+        },
+        manage: 'Potete gestire le vostre preferenze sui cookie in qualsiasi momento cliccando su "Impostazioni Cookie" nel footer.',
+      },
+      rights: {
+        title: 'I Vostri Diritti',
+        intro: 'Ai sensi del GDPR, avete i seguenti diritti:',
+        items: [
+          'Diritto di accesso ai vostri dati personali',
+          'Diritto di rettifica dei dati inesatti',
+          'Diritto alla cancellazione ("diritto all\'oblio")',
+          'Diritto di limitazione del trattamento',
+          'Diritto alla portabilità dei dati',
+          'Diritto di opposizione al trattamento',
+          'Diritto di revocare il consenso in qualsiasi momento',
+        ],
+        exercise: 'Per esercitare uno di questi diritti, contattateci utilizzando i dettagli sottostanti.',
+      },
+      retention: {
+        title: 'Conservazione dei Dati',
+        content: 'Conserviamo i vostri dati personali solo per il tempo necessario a soddisfare gli scopi per cui sono stati raccolti, o come richiesto dalla legge. Le richieste del modulo di contatto vengono conservate per un massimo di 2 anni.',
+      },
+      security: {
+        title: 'Sicurezza dei Dati',
+        content: 'Implementiamo misure tecniche e organizzative appropriate per proteggere i vostri dati personali da accesso non autorizzato, alterazione, divulgazione o distruzione.',
+      },
+      thirdParty: {
+        title: 'Condivisione con Terze Parti',
+        content: 'Non vendiamo i vostri dati personali. Possiamo condividere le vostre informazioni con fornitori di servizi di fiducia che ci assistono nella gestione del nostro sito web, soggetti a rigorosi accordi di riservatezza.',
+      },
+      contact: {
+        title: 'Contattaci',
+        content: 'Per qualsiasi domanda su questa Informativa sulla Privacy o per esercitare i vostri diritti di protezione dei dati, contattateci:',
+      },
+      changes: {
+        title: 'Modifiche a Questa Informativa',
+        content: 'Possiamo aggiornare questa Informativa sulla Privacy di tanto in tanto. Eventuali modifiche saranno pubblicate su questa pagina con una data di revisione aggiornata.',
+      },
+    },
+    
+    // Cookie Consent
+    cookieConsent: {
+      title: 'Impostazioni Cookie',
+      description: 'Utilizziamo i cookie per migliorare la vostra esperienza di navigazione. Scegliete le vostre preferenze qui sotto.',
+      necessary: {
+        title: 'Cookie Necessari',
+        desc: 'Essenziali per il corretto funzionamento del sito web. Questi cookie non possono essere disabilitati.',
+      },
+      analytics: {
+        title: 'Cookie Analitici',
+        desc: 'Ci aiutano a capire come i visitatori utilizzano il nostro sito per migliorare i nostri servizi.',
+      },
+      marketing: {
+        title: 'Cookie di Marketing',
+        desc: 'Utilizzati per fornire pubblicità pertinenti e monitorare l\'efficacia delle campagne.',
+      },
+      acceptAll: 'Accetta Tutti',
+      rejectAll: 'Rifiuta Tutti',
+      savePreferences: 'Salva Preferenze',
+      privacyLink: 'Leggi la nostra Privacy Policy',
     },
     
     // 404 page
