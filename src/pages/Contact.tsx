@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Mail, Phone, MapPin, Printer, CheckCircle, AlertCircle } from 'lucide-react';
+import { Mail, Phone, MapPin, CheckCircle, AlertCircle } from 'lucide-react';
 import { useLanguage } from '@/i18n/LanguageContext';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
@@ -148,15 +148,6 @@ export default function Contact() {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <Printer className="h-5 w-5 text-muted-foreground mt-1 flex-shrink-0" />
-                  <div>
-                    <h3 className="font-medium text-foreground">{t.contact.fax}</h3>
-                    <p className="text-muted-foreground">
-                      +39 039 2496616
-                    </p>
-                  </div>
-                </div>
 
                 <div className="flex items-start gap-4">
                   <Mail className="h-5 w-5 text-muted-foreground mt-1 flex-shrink-0" />
