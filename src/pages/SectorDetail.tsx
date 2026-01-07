@@ -4,12 +4,13 @@ import { ArrowLeft } from 'lucide-react';
 import { getSectorBySlug } from '../data/sectors';
 import { useLanguage } from '@/i18n/LanguageContext';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
-import { SEOHead, generateProductSchema } from '@/components/SEOHead';
+import { generateProductSchema } from '@/components/SEOHead';
 
 export default function SectorDetail() {
   const { slug } = useParams<{ slug: string }>();
   const sector = slug ? getSectorBySlug(slug) : null;
   const { t, language } = useLanguage();
+  const baseUrl = 'https://www.eurotexnastri.it';
 
   if (!sector) {
     return (
@@ -27,6 +28,7 @@ export default function SectorDetail() {
 
   const sectorTitle = language === 'it' ? sector.titleIt : sector.title;
   const sectorDescription = language === 'it' ? sector.descriptionIt : sector.description;
+  const pageUrl = `${baseUrl}/sectors/${sector.slug}`;
 
   const productSchema = generateProductSchema({
     title: sectorTitle,
@@ -43,7 +45,12 @@ export default function SectorDetail() {
           name="description"
           content={`${sectorDescription} ${language === 'it' ? 'Nastri tessili italiani di alta qualità per applicazioni' : 'High-quality Italian textile webbings for'} ${sectorTitle.toLowerCase()}.`}
         />
-        <SEOHead path={`/sectors/${sector.slug}`} />
+        <link rel="canonical" href={pageUrl} />
+        <link rel="alternate" hrefLang="en" href={pageUrl} />
+        <link rel="alternate" hrefLang="it" href={pageUrl} />
+        <link rel="alternate" hrefLang="x-default" href={pageUrl} />
+        <meta property="og:locale" content={language === 'it' ? 'it_IT' : 'en_US'} />
+        <meta property="og:url" content={pageUrl} />
         <script type="application/ld+json">
           {JSON.stringify(productSchema)}
         </script>

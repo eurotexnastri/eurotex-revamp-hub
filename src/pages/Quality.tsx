@@ -2,13 +2,13 @@ import { Helmet } from 'react-helmet-async';
 import { Award, ShieldCheck } from 'lucide-react';
 import { useLanguage } from '@/i18n/LanguageContext';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
-import { SEOHead } from '@/components/SEOHead';
 import dasaLogo from '@/assets/quality/dasa-logo.png';
 import oekotexLogo from '@/assets/quality/oekotex-logo.png';
 
 
 export default function Quality() {
   const { t, language } = useLanguage();
+  const baseUrl = 'https://www.eurotexnastri.it';
 
   const qualityItems = [
     { icon: Award, title: t.quality.iso.title, desc: t.quality.iso.desc },
@@ -59,7 +59,12 @@ export default function Quality() {
             : 'Eurotex: ISO 9001 and Oeko-Tex certified quality. Safe, sustainable and innovative technical webbings, 100% Made in Italy.'
           }
         />
-        <SEOHead path="/quality" />
+        <link rel="canonical" href={`${baseUrl}/quality`} />
+        <link rel="alternate" hrefLang="en" href={`${baseUrl}/quality`} />
+        <link rel="alternate" hrefLang="it" href={`${baseUrl}/quality`} />
+        <link rel="alternate" hrefLang="x-default" href={`${baseUrl}/quality`} />
+        <meta property="og:locale" content={language === 'it' ? 'it_IT' : 'en_US'} />
+        <meta property="og:url" content={`${baseUrl}/quality`} />
         <script type="application/ld+json">
           {JSON.stringify(certificationsSchema)}
         </script>

@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, ChevronRight } from 'lucide-react';
 import { useLanguage } from '@/i18n/LanguageContext';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
-import { SEOHead } from '@/components/SEOHead';
 
 import products1 from '@/assets/products/products-1.jpg';
 import products2 from '@/assets/products/products-2.jpg';
@@ -27,6 +26,7 @@ const productImages = [
 
 export default function Products() {
   const { t, language } = useLanguage();
+  const baseUrl = 'https://www.eurotexnastri.it';
 
   const processSteps = [
     { number: '01', title: t.products.steps.weaving, id: 'weaving' },
@@ -47,7 +47,7 @@ export default function Products() {
       '@type': 'HowToStep',
       position: index + 1,
       name: step.title,
-      url: `https://www.eurotexnastri.it/products#${step.id}`,
+      url: `${baseUrl}/products#${step.id}`,
     })),
   };
 
@@ -62,7 +62,12 @@ export default function Products() {
             : 'Explore our range of textile webbings, elastic tapes, safety belts, and technical fabrics. Custom solutions for industrial, fashion, and safety applications.'
           }
         />
-        <SEOHead path="/products" />
+        <link rel="canonical" href={`${baseUrl}/products`} />
+        <link rel="alternate" hrefLang="en" href={`${baseUrl}/products`} />
+        <link rel="alternate" hrefLang="it" href={`${baseUrl}/products`} />
+        <link rel="alternate" hrefLang="x-default" href={`${baseUrl}/products`} />
+        <meta property="og:locale" content={language === 'it' ? 'it_IT' : 'en_US'} />
+        <meta property="og:url" content={`${baseUrl}/products`} />
         <script type="application/ld+json">
           {JSON.stringify(howToSchema)}
         </script>

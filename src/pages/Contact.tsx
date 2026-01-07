@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
-import { SEOHead, generateLocalBusinessSchema } from '@/components/SEOHead';
+import { generateLocalBusinessSchema } from '@/components/SEOHead';
 import buildingImage from '@/assets/contact/building.jpg';
 
 // Contact form validation schema
@@ -44,6 +44,7 @@ type ContactFormData = z.infer<ReturnType<typeof createContactSchema>>;
 
 export default function Contact() {
   const { t, language } = useLanguage();
+  const baseUrl = 'https://www.eurotexnastri.it';
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
@@ -82,7 +83,7 @@ export default function Contact() {
   };
 
   // Contact page structured data
-  const contactSchema2 = {
+  const contactPageSchema = {
     '@context': 'https://schema.org',
     '@type': 'ContactPage',
     name: language === 'it' ? 'Contatti - Eurotex' : 'Contact - Eurotex',
@@ -103,9 +104,14 @@ export default function Contact() {
             : 'Contact Eurotex SRL for inquiries about textile webbings, tapes, and narrow fabrics. Located in Vedano al Lambro, Italy. Request a quote or technical support.'
           }
         />
-        <SEOHead path="/contact" />
+        <link rel="canonical" href={`${baseUrl}/contact`} />
+        <link rel="alternate" hrefLang="en" href={`${baseUrl}/contact`} />
+        <link rel="alternate" hrefLang="it" href={`${baseUrl}/contact`} />
+        <link rel="alternate" hrefLang="x-default" href={`${baseUrl}/contact`} />
+        <meta property="og:locale" content={language === 'it' ? 'it_IT' : 'en_US'} />
+        <meta property="og:url" content={`${baseUrl}/contact`} />
         <script type="application/ld+json">
-          {JSON.stringify(contactSchema2)}
+          {JSON.stringify(contactPageSchema)}
         </script>
       </Helmet>
 
