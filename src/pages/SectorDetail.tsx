@@ -3,6 +3,8 @@ import { Helmet } from 'react-helmet-async';
 import { ArrowLeft } from 'lucide-react';
 import { getSectorBySlug } from '../data/sectors';
 import { useLanguage } from '@/i18n/LanguageContext';
+import { Breadcrumbs } from '@/components/Breadcrumbs';
+import { SEOHead, generateProductSchema } from '@/components/SEOHead';
 
 export default function SectorDetail() {
   const { slug } = useParams<{ slug: string }>();
@@ -26,6 +28,13 @@ export default function SectorDetail() {
   const sectorTitle = language === 'it' ? sector.titleIt : sector.title;
   const sectorDescription = language === 'it' ? sector.descriptionIt : sector.description;
 
+  const productSchema = generateProductSchema({
+    title: sectorTitle,
+    description: sectorDescription,
+    slug: sector.slug,
+    image: sector.image,
+  });
+
   return (
     <>
       <Helmet>
@@ -34,18 +43,19 @@ export default function SectorDetail() {
           name="description"
           content={`${sectorDescription} ${language === 'it' ? 'Nastri tessili italiani di alta qualità per applicazioni' : 'High-quality Italian textile webbings for'} ${sectorTitle.toLowerCase()}.`}
         />
+        <SEOHead path={`/sectors/${sector.slug}`} />
+        <script type="application/ld+json">
+          {JSON.stringify(productSchema)}
+        </script>
       </Helmet>
 
       {/* Header */}
       <section className="py-16 md:py-24">
         <div className="section-container">
-          <Link
-            to="/sectors"
-            className="inline-flex items-center text-sm text-muted-foreground hover:text-foreground transition-colors mb-8"
-          >
-            <ArrowLeft className="mr-2 h-4 w-4" />
-            {t.sectors.backToSectors}
-          </Link>
+          <Breadcrumbs 
+            items={[{ label: t.nav.sectors, href: '/sectors' }]} 
+            currentPage={sectorTitle} 
+          />
           
           <div className="max-w-4xl">
             <h1 className="section-title mb-4 animate-slide-up">

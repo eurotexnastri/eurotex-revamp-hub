@@ -5,6 +5,8 @@ import { useLanguage } from '@/i18n/LanguageContext';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { Breadcrumbs } from '@/components/Breadcrumbs';
+import { SEOHead, generateLocalBusinessSchema } from '@/components/SEOHead';
 import buildingImage from '@/assets/contact/building.jpg';
 
 // Contact form validation schema
@@ -79,6 +81,17 @@ export default function Contact() {
     }
   };
 
+  // Contact page structured data
+  const contactSchema2 = {
+    '@context': 'https://schema.org',
+    '@type': 'ContactPage',
+    name: language === 'it' ? 'Contatti - Eurotex' : 'Contact - Eurotex',
+    description: language === 'it'
+      ? 'Contatta Eurotex SRL per informazioni su nastri tessili'
+      : 'Contact Eurotex SRL for inquiries about textile webbings',
+    mainEntity: generateLocalBusinessSchema(),
+  };
+
   return (
     <>
       <Helmet>
@@ -90,11 +103,16 @@ export default function Contact() {
             : 'Contact Eurotex SRL for inquiries about textile webbings, tapes, and narrow fabrics. Located in Vedano al Lambro, Italy. Request a quote or technical support.'
           }
         />
+        <SEOHead path="/contact" />
+        <script type="application/ld+json">
+          {JSON.stringify(contactSchema2)}
+        </script>
       </Helmet>
 
       {/* Hero with Building Image */}
       <section className="py-16 md:py-24">
         <div className="section-container">
+          <Breadcrumbs currentPage={t.nav.contact} />
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="section-title mb-6 animate-slide-up">
@@ -107,7 +125,9 @@ export default function Contact() {
             <div className="animate-slide-up" style={{ animationDelay: '200ms' }}>
               <img
                 src={buildingImage}
-                alt="Eurotex building"
+                alt="Eurotex building headquarters in Vedano al Lambro, Italy"
+                loading="lazy"
+                decoding="async"
                 className="w-full rounded-sm shadow-subtle"
               />
             </div>

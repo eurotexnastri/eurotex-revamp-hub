@@ -2,6 +2,8 @@ import { Helmet } from 'react-helmet-async';
 import { useState, useEffect, useCallback } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import { useLanguage } from '@/i18n/LanguageContext';
+import { Breadcrumbs } from '@/components/Breadcrumbs';
+import { SEOHead } from '@/components/SEOHead';
 import factory1 from '@/assets/home/factory-1.jpg';
 import factory2 from '@/assets/home/factory-2.jpg';
 import factory3 from '@/assets/home/factory-3.jpg';
@@ -61,6 +63,19 @@ export default function About() {
     t.about.strengths.madeInItaly,
   ];
 
+  // About page structured data
+  const aboutSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'AboutPage',
+    name: language === 'it' ? 'Chi Siamo - Eurotex' : 'About Us - Eurotex',
+    description: language === 'it'
+      ? 'Scopri Eurotex SRL, un produttore tessile italiano con oltre 50 anni di esperienza'
+      : 'Learn about Eurotex SRL, an Italian textile manufacturer with over 50 years of experience',
+    mainEntity: {
+      '@id': 'https://www.eurotexnastri.it/#organization',
+    },
+  };
+
   return (
     <>
       <Helmet>
@@ -72,11 +87,16 @@ export default function About() {
             : 'Learn about Eurotex SRL, an Italian textile manufacturer with over 50 years of experience in producing premium webbings and narrow fabrics.'
           }
         />
+        <SEOHead path="/about" />
+        <script type="application/ld+json">
+          {JSON.stringify(aboutSchema)}
+        </script>
       </Helmet>
 
       {/* Hero */}
       <section className="py-16 md:py-24">
         <div className="section-container">
+          <Breadcrumbs currentPage={t.nav.whoAreWe} />
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="section-title mb-6 animate-slide-up">
               {t.about.title}

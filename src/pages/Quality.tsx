@@ -1,6 +1,8 @@
 import { Helmet } from 'react-helmet-async';
 import { Award, ShieldCheck } from 'lucide-react';
 import { useLanguage } from '@/i18n/LanguageContext';
+import { Breadcrumbs } from '@/components/Breadcrumbs';
+import { SEOHead } from '@/components/SEOHead';
 import dasaLogo from '@/assets/quality/dasa-logo.png';
 import oekotexLogo from '@/assets/quality/oekotex-logo.png';
 
@@ -13,6 +15,39 @@ export default function Quality() {
     { icon: ShieldCheck, title: t.quality.oeko.title, desc: t.quality.oeko.desc },
   ];
 
+  // Certifications structured data
+  const certificationsSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: language === 'it' ? 'Qualità Certificata' : 'Certified Quality',
+    description: language === 'it'
+      ? 'Eurotex: qualità certificata ISO 9001 e Oeko-Tex'
+      : 'Eurotex: ISO 9001 and Oeko-Tex certified quality',
+    mainEntity: {
+      '@type': 'ItemList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          item: {
+            '@type': 'Certification',
+            name: 'UNI EN ISO 9001:2015',
+            issuedBy: 'Dasa-Rägister',
+          },
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          item: {
+            '@type': 'Certification',
+            name: 'OEKO-TEX Standard 100',
+            issuedBy: 'OEKO-TEX',
+          },
+        },
+      ],
+    },
+  };
+
   return (
     <>
       <Helmet>
@@ -24,17 +59,24 @@ export default function Quality() {
             : 'Eurotex: ISO 9001 and Oeko-Tex certified quality. Safe, sustainable and innovative technical webbings, 100% Made in Italy.'
           }
         />
+        <SEOHead path="/quality" />
+        <script type="application/ld+json">
+          {JSON.stringify(certificationsSchema)}
+        </script>
       </Helmet>
 
       {/* Hero Section */}
       <section className="py-20 md:py-28">
-        <div className="section-container text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-light tracking-tight text-foreground mb-6 animate-slide-up">
-            {t.quality.title}
-          </h1>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto animate-slide-up" style={{ animationDelay: '100ms' }}>
-            {t.quality.subtitle}
-          </p>
+        <div className="section-container">
+          <Breadcrumbs currentPage={t.nav.quality} />
+          <div className="text-center">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-light tracking-tight text-foreground mb-6 animate-slide-up">
+              {t.quality.title}
+            </h1>
+            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto animate-slide-up" style={{ animationDelay: '100ms' }}>
+              {t.quality.subtitle}
+            </p>
+          </div>
         </div>
       </section>
 
