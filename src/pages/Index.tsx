@@ -4,6 +4,7 @@ import { ArrowRight } from 'lucide-react';
 import { useState, useEffect, useCallback } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import { useLanguage } from '@/i18n/LanguageContext';
+import { SEOHead, generateOrganizationSchema, generateWebSiteSchema } from '@/components/SEOHead';
 import webbings1 from '@/assets/home/webbings-1.jpg';
 import webbings2 from '@/assets/home/webbings-2.jpg';
 import webbings3 from '@/assets/home/webbings-3.jpg';
@@ -111,7 +112,13 @@ export default function Index() {
             : 'technical webbing, textile webbings, narrow fabrics, industrial tapes, fashion webbings, safety belts, lifting straps, Italian manufacturer, made in Italy'
           }
         />
-        <link rel="canonical" href="https://www.eurotexnastri.it" />
+        <SEOHead path="/" />
+        <script type="application/ld+json">
+          {JSON.stringify(generateOrganizationSchema())}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify(generateWebSiteSchema())}
+        </script>
       </Helmet>
 
       {/* Hero Section */}

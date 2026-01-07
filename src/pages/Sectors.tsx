@@ -2,9 +2,28 @@ import { Helmet } from 'react-helmet-async';
 import { SectorCard } from '../components/SectorCard';
 import { sectors } from '../data/sectors';
 import { useLanguage } from '@/i18n/LanguageContext';
+import { Breadcrumbs } from '@/components/Breadcrumbs';
+import { SEOHead } from '@/components/SEOHead';
 
 export default function Sectors() {
   const { t, language } = useLanguage();
+
+  // Generate ItemList structured data for sectors
+  const sectorsListSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: language === 'it' ? 'Settori Eurotex' : 'Eurotex Sectors',
+    description: language === 'it' 
+      ? 'Settori industriali serviti da Eurotex Nastri' 
+      : 'Industrial sectors served by Eurotex Nastri',
+    numberOfItems: sectors.length,
+    itemListElement: sectors.map((sector, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: language === 'it' ? sector.titleIt : sector.title,
+      url: `https://www.eurotexnastri.it/sectors/${sector.slug}`,
+    })),
+  };
 
   return (
     <>
@@ -17,11 +36,16 @@ export default function Sectors() {
             : 'Discover Eurotex webbings and tapes for fashion, automotive, medical, military, sports, and industrial applications. Sector-specific solutions with certified quality.'
           }
         />
+        <SEOHead path="/sectors" />
+        <script type="application/ld+json">
+          {JSON.stringify(sectorsListSchema)}
+        </script>
       </Helmet>
 
       {/* Hero */}
       <section className="py-20 md:py-32">
         <div className="section-container">
+          <Breadcrumbs currentPage={t.nav.sectors} />
           <div className="max-w-4xl">
             <h1 className="section-title mb-6 animate-slide-up">
               {t.sectors.title}

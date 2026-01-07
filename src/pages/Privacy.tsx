@@ -1,20 +1,27 @@
 import { Helmet } from 'react-helmet-async';
 import { useLanguage } from '@/i18n/LanguageContext';
+import { Breadcrumbs } from '@/components/Breadcrumbs';
+import { SEOHead } from '@/components/SEOHead';
 
 export default function Privacy() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const p = t.privacy;
 
   return (
     <>
       <Helmet>
         <title>{p.title} | Eurotex</title>
-        <meta name="description" content="Privacy Policy - Eurotex SRL GDPR compliance information" />
+        <meta name="description" content={language === 'it' 
+          ? 'Informativa sulla Privacy - Eurotex SRL conformità GDPR'
+          : 'Privacy Policy - Eurotex SRL GDPR compliance information'
+        } />
+        <SEOHead path="/privacy" />
       </Helmet>
 
       {/* Hero Section */}
       <section className="py-16 md:py-24 bg-gradient-to-b from-primary/5 to-transparent">
         <div className="section-container">
+          <Breadcrumbs currentPage={p.title} />
           <h1 className="heading-1 text-center mb-4">{p.title}</h1>
           <p className="text-muted-foreground text-center">
             {p.lastUpdated}: December 2024

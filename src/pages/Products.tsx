@@ -2,6 +2,8 @@ import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ChevronRight } from 'lucide-react';
 import { useLanguage } from '@/i18n/LanguageContext';
+import { Breadcrumbs } from '@/components/Breadcrumbs';
+import { SEOHead } from '@/components/SEOHead';
 
 import products1 from '@/assets/products/products-1.jpg';
 import products2 from '@/assets/products/products-2.jpg';
@@ -13,14 +15,14 @@ import products7 from '@/assets/products/products-7.jpg';
 import products8 from '@/assets/products/products-8.jpg';
 
 const productImages = [
-  products1,
-  products2,
-  products3,
-  products4,
-  products5,
-  products6,
-  products7,
-  products8,
+  { src: products1, alt: 'Eurotex woven webbing samples in various colors' },
+  { src: products2, alt: 'Industrial grade textile straps and tapes' },
+  { src: products3, alt: 'Colorful narrow fabric webbings' },
+  { src: products4, alt: 'Technical webbings for safety applications' },
+  { src: products5, alt: 'Premium quality textile bands' },
+  { src: products6, alt: 'Custom designed webbings and ribbons' },
+  { src: products7, alt: 'Heavy-duty industrial webbings' },
+  { src: products8, alt: 'Specialized textile tapes and straps' },
 ];
 
 export default function Products() {
@@ -33,6 +35,22 @@ export default function Products() {
     { number: '04', title: t.products.steps.cutting, id: 'cutting' },
   ];
 
+  // HowTo structured data for manufacturing process
+  const howToSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: language === 'it' ? 'Processo di Produzione Nastri' : 'Webbing Manufacturing Process',
+    description: language === 'it' 
+      ? 'Il nostro processo di produzione nastri tecnici in 4 fasi'
+      : 'Our 4-step technical webbing production process',
+    step: processSteps.map((step, index) => ({
+      '@type': 'HowToStep',
+      position: index + 1,
+      name: step.title,
+      url: `https://www.eurotexnastri.it/products#${step.id}`,
+    })),
+  };
+
   return (
     <>
       <Helmet>
@@ -44,11 +62,16 @@ export default function Products() {
             : 'Explore our range of textile webbings, elastic tapes, safety belts, and technical fabrics. Custom solutions for industrial, fashion, and safety applications.'
           }
         />
+        <SEOHead path="/products" />
+        <script type="application/ld+json">
+          {JSON.stringify(howToSchema)}
+        </script>
       </Helmet>
 
       {/* Hero */}
       <section className="py-20 md:py-32">
         <div className="section-container">
+          <Breadcrumbs currentPage={t.nav.products} />
           <div className="max-w-4xl">
             <h1 className="section-title mb-6 animate-slide-up">
               {t.products.title}
@@ -71,8 +94,10 @@ export default function Products() {
                 style={{ animationDelay: `${index * 50}ms` }}
               >
                 <img
-                  src={image}
-                  alt={`Eurotex webbing product ${index + 1}`}
+                  src={image.src}
+                  alt={image.alt}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-contain p-2"
                 />
               </div>
