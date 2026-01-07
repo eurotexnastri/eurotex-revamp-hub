@@ -3,7 +3,6 @@ import { useState, useEffect, useCallback } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import { useLanguage } from '@/i18n/LanguageContext';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
-import { SEOHead } from '@/components/SEOHead';
 import factory1 from '@/assets/home/factory-1.jpg';
 import factory2 from '@/assets/home/factory-2.jpg';
 import factory3 from '@/assets/home/factory-3.jpg';
@@ -20,6 +19,7 @@ const factoryImages = [
 
 export default function About() {
   const { t, language } = useLanguage();
+  const baseUrl = 'https://www.eurotexnastri.it';
   const [factoryEmblaRef, factoryEmblaApi] = useEmblaCarousel({ loop: true });
   const [factorySelectedIndex, setFactorySelectedIndex] = useState(0);
 
@@ -72,7 +72,7 @@ export default function About() {
       ? 'Scopri Eurotex SRL, un produttore tessile italiano con oltre 50 anni di esperienza'
       : 'Learn about Eurotex SRL, an Italian textile manufacturer with over 50 years of experience',
     mainEntity: {
-      '@id': 'https://www.eurotexnastri.it/#organization',
+      '@id': `${baseUrl}/#organization`,
     },
   };
 
@@ -87,7 +87,12 @@ export default function About() {
             : 'Learn about Eurotex SRL, an Italian textile manufacturer with over 50 years of experience in producing premium webbings and narrow fabrics.'
           }
         />
-        <SEOHead path="/about" />
+        <link rel="canonical" href={`${baseUrl}/about`} />
+        <link rel="alternate" hrefLang="en" href={`${baseUrl}/about`} />
+        <link rel="alternate" hrefLang="it" href={`${baseUrl}/about`} />
+        <link rel="alternate" hrefLang="x-default" href={`${baseUrl}/about`} />
+        <meta property="og:locale" content={language === 'it' ? 'it_IT' : 'en_US'} />
+        <meta property="og:url" content={`${baseUrl}/about`} />
         <script type="application/ld+json">
           {JSON.stringify(aboutSchema)}
         </script>

@@ -1,11 +1,11 @@
 import { Helmet } from 'react-helmet-async';
 import { useLanguage } from '@/i18n/LanguageContext';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
-import { SEOHead } from '@/components/SEOHead';
 
 export default function Privacy() {
   const { t, language } = useLanguage();
   const p = t.privacy;
+  const baseUrl = 'https://www.eurotexnastri.it';
 
   return (
     <>
@@ -15,7 +15,12 @@ export default function Privacy() {
           ? 'Informativa sulla Privacy - Eurotex SRL conformità GDPR'
           : 'Privacy Policy - Eurotex SRL GDPR compliance information'
         } />
-        <SEOHead path="/privacy" />
+        <link rel="canonical" href={`${baseUrl}/privacy`} />
+        <link rel="alternate" hrefLang="en" href={`${baseUrl}/privacy`} />
+        <link rel="alternate" hrefLang="it" href={`${baseUrl}/privacy`} />
+        <link rel="alternate" hrefLang="x-default" href={`${baseUrl}/privacy`} />
+        <meta property="og:locale" content={language === 'it' ? 'it_IT' : 'en_US'} />
+        <meta property="og:url" content={`${baseUrl}/privacy`} />
       </Helmet>
 
       {/* Hero Section */}

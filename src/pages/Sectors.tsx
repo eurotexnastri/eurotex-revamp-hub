@@ -3,10 +3,10 @@ import { SectorCard } from '../components/SectorCard';
 import { sectors } from '../data/sectors';
 import { useLanguage } from '@/i18n/LanguageContext';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
-import { SEOHead } from '@/components/SEOHead';
 
 export default function Sectors() {
   const { t, language } = useLanguage();
+  const baseUrl = 'https://www.eurotexnastri.it';
 
   // Generate ItemList structured data for sectors
   const sectorsListSchema = {
@@ -21,7 +21,7 @@ export default function Sectors() {
       '@type': 'ListItem',
       position: index + 1,
       name: language === 'it' ? sector.titleIt : sector.title,
-      url: `https://www.eurotexnastri.it/sectors/${sector.slug}`,
+      url: `${baseUrl}/sectors/${sector.slug}`,
     })),
   };
 
@@ -36,7 +36,12 @@ export default function Sectors() {
             : 'Discover Eurotex webbings and tapes for fashion, automotive, medical, military, sports, and industrial applications. Sector-specific solutions with certified quality.'
           }
         />
-        <SEOHead path="/sectors" />
+        <link rel="canonical" href={`${baseUrl}/sectors`} />
+        <link rel="alternate" hrefLang="en" href={`${baseUrl}/sectors`} />
+        <link rel="alternate" hrefLang="it" href={`${baseUrl}/sectors`} />
+        <link rel="alternate" hrefLang="x-default" href={`${baseUrl}/sectors`} />
+        <meta property="og:locale" content={language === 'it' ? 'it_IT' : 'en_US'} />
+        <meta property="og:url" content={`${baseUrl}/sectors`} />
         <script type="application/ld+json">
           {JSON.stringify(sectorsListSchema)}
         </script>
