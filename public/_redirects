@@ -1,11 +1,2 @@
-# Normalize trailing slashes
-/about/       /about       301
-/products/    /products    301
-/sectors/     /sectors     301
-/quality/     /quality     301
-/contact/     /contact     301
-/privacy/     /privacy     301
-/sectors/*/   /sectors/:splat  301
-
 # SPA fallback
 /*    /index.html   200
