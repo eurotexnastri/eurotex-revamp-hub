@@ -16,6 +16,8 @@ export function Breadcrumbs({ items = [], currentPage }: BreadcrumbsProps) {
   const { t } = useLanguage();
   const location = useLocation();
 
+  const baseUrl = 'https://www.eurotexnastri.com';
+
   // Generate breadcrumb structured data
   const structuredData = {
     '@context': 'https://schema.org',
@@ -25,13 +27,13 @@ export function Breadcrumbs({ items = [], currentPage }: BreadcrumbsProps) {
         '@type': 'ListItem',
         position: 1,
         name: t.nav.home,
-        item: 'https://www.eurotexnastri.it/',
+        item: `${baseUrl}/`,
       },
       ...items.map((item, index) => ({
         '@type': 'ListItem',
         position: index + 2,
         name: item.label,
-        item: `https://www.eurotexnastri.it${item.href}`,
+        item: `${baseUrl}${item.href}`,
       })),
       ...(currentPage
         ? [
@@ -39,7 +41,7 @@ export function Breadcrumbs({ items = [], currentPage }: BreadcrumbsProps) {
               '@type': 'ListItem',
               position: items.length + 2,
               name: currentPage,
-              item: `https://www.eurotexnastri.it${location.pathname}`,
+              item: `${baseUrl}${location.pathname}`,
             },
           ]
         : []),
