@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <!-- Homepage -->
   <url>
     <loc>https://www.eurotexnastri.com/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.eurotexnastri.com/"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://www.eurotexnastri.com/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.eurotexnastri.com/"/>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -15,8 +11,6 @@
   <!-- About -->
   <url>
     <loc>https://www.eurotexnastri.com/about</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.eurotexnastri.com/about"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://www.eurotexnastri.com/about"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -24,8 +18,6 @@
   <!-- Products -->
   <url>
     <loc>https://www.eurotexnastri.com/products</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.eurotexnastri.com/products"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://www.eurotexnastri.com/products"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -33,8 +25,6 @@
   <!-- Sectors -->
   <url>
     <loc>https://www.eurotexnastri.com/sectors</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.eurotexnastri.com/sectors"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://www.eurotexnastri.com/sectors"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -89,8 +79,6 @@
   <!-- Quality -->
   <url>
     <loc>https://www.eurotexnastri.com/quality</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.eurotexnastri.com/quality"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://www.eurotexnastri.com/quality"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -98,8 +86,6 @@
   <!-- Contact -->
   <url>
     <loc>https://www.eurotexnastri.com/contact</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.eurotexnastri.com/contact"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://www.eurotexnastri.com/contact"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -107,8 +93,6 @@
   <!-- Privacy -->
   <url>
     <loc>https://www.eurotexnastri.com/privacy</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.eurotexnastri.com/privacy"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://www.eurotexnastri.com/privacy"/>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
