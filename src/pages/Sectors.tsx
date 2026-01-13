@@ -6,7 +6,7 @@ import { Breadcrumbs } from '@/components/Breadcrumbs';
 
 export default function Sectors() {
   const { t, language } = useLanguage();
-  const baseUrl = 'https://www.eurotexnastri.it';
+  const baseUrl = 'https://www.eurotexnastri.com';
 
   // Generate ItemList structured data for sectors
   const sectorsListSchema = {

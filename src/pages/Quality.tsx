@@ -8,7 +8,7 @@ import oekotexLogo from '@/assets/quality/oekotex-logo.png';
 
 export default function Quality() {
   const { t, language } = useLanguage();
-  const baseUrl = 'https://www.eurotexnastri.it';
+  const baseUrl = 'https://www.eurotexnastri.com';
 
   const qualityItems = [
     { icon: Award, title: t.quality.iso.title, desc: t.quality.iso.desc },

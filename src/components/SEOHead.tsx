@@ -6,7 +6,7 @@ interface SEOHeadProps {
 
 export function SEOHead({ path }: SEOHeadProps) {
   const { language } = useLanguage();
-  const baseUrl = 'https://www.eurotexnastri.it';
+  const baseUrl = 'https://www.eurotexnastri.com';
 
   return (
     <>
@@ -31,11 +31,11 @@ export function generateOrganizationSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    '@id': 'https://www.eurotexnastri.it/#organization',
+    '@id': 'https://www.eurotexnastri.com/#organization',
     name: 'Eurotex SRL',
     alternateName: 'Eurotex Nastri',
-    url: 'https://www.eurotexnastri.it',
-    logo: 'https://www.eurotexnastri.it/logo.png',
+    url: 'https://www.eurotexnastri.com',
+    logo: 'https://www.eurotexnastri.com/logo.png',
     description: 'Italian manufacturer of premium textile webbings and narrow fabrics for industrial, fashion, safety, and technical applications.',
     foundingDate: '1974',
     vatID: 'IT09835600157',
@@ -62,8 +62,8 @@ export function generateWebSiteSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    '@id': 'https://www.eurotexnastri.it/#website',
-    url: 'https://www.eurotexnastri.it',
+    '@id': 'https://www.eurotexnastri.com/#website',
+    url: 'https://www.eurotexnastri.com',
     name: 'Eurotex Nastri',
     description: 'Premium textile webbings and narrow fabrics manufacturer',
     publisher: {
@@ -84,7 +84,7 @@ export function generateProductSchema(sector: {
     '@type': 'Product',
     name: `${sector.title} Webbings`,
     description: sector.description,
-    url: `https://www.eurotexnastri.it/sectors/${sector.slug}`,
+    url: `https://www.eurotexnastri.com/sectors/${sector.slug}`,
     image: sector.image,
     brand: {
       '@type': 'Brand',
@@ -103,9 +103,9 @@ export function generateLocalBusinessSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
-    '@id': 'https://www.eurotexnastri.it/#localbusiness',
+    '@id': 'https://www.eurotexnastri.com/#localbusiness',
     name: 'Eurotex SRL',
-    image: 'https://www.eurotexnastri.it/logo.png',
+    image: 'https://www.eurotexnastri.com/logo.png',
     telephone: '+39-039-2496615',
     email: 'info@eurotexnastri.it',
     address: {
@@ -121,7 +121,7 @@ export function generateLocalBusinessSchema() {
       latitude: 45.617635,
       longitude: 9.267191,
     },
-    url: 'https://www.eurotexnastri.it',
+    url: 'https://www.eurotexnastri.com',
     priceRange: '$$',
   };
 }

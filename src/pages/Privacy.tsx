@@ -5,7 +5,7 @@ import { Breadcrumbs } from '@/components/Breadcrumbs';
 export default function Privacy() {
   const { t, language } = useLanguage();
   const p = t.privacy;
-  const baseUrl = 'https://www.eurotexnastri.it';
+  const baseUrl = 'https://www.eurotexnastri.com';
 
   return (
     <>
