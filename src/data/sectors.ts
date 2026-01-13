@@ -220,7 +220,7 @@ export const sectors: Sector[] = [
   },
   {
     id: '6',
-    slug: 'military',
+    slug: 'defense',
     title: 'Military',
     titleIt: 'Militare',
     image: militaryCard,
