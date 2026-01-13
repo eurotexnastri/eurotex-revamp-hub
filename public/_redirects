@@ -1,3 +1,6 @@
+# Redirect non-www to www (requires Netlify domain configuration)
+https://eurotexnastri.com/*  https://www.eurotexnastri.com/:splat  301!
+
 # Normalize trailing slashes - redirect /path/ to /path (except root)
 /about/       /about       301
 /products/    /products    301
