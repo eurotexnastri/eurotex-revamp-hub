@@ -1,2 +1,11 @@
-# Netlify SPA redirect - all routes should serve index.html
+# Normalize trailing slashes - redirect /path/ to /path (except root)
+/about/       /about       301
+/products/    /products    301
+/sectors/     /sectors     301
+/quality/     /quality     301
+/contact/     /contact     301
+/privacy/     /privacy     301
+/sectors/*/   /sectors/:splat  301
+
+# SPA fallback - all other routes serve index.html
 /*    /index.html   200
