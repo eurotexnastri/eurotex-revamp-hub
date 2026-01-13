@@ -1,9 +1,10 @@
 import { Helmet } from 'react-helmet-async';
-import { Award, ShieldCheck } from 'lucide-react';
+import { Award, ShieldCheck, Recycle } from 'lucide-react';
 import { useLanguage } from '@/i18n/LanguageContext';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import dasaLogo from '@/assets/quality/dasa-logo.png';
 import oekotexLogo from '@/assets/quality/oekotex-logo.png';
+import grsLogo from '@/assets/quality/grs-logo.png';
 
 
 export default function Quality() {
@@ -13,6 +14,7 @@ export default function Quality() {
   const qualityItems = [
     { icon: Award, title: t.quality.iso.title, desc: t.quality.iso.desc },
     { icon: ShieldCheck, title: t.quality.oeko.title, desc: t.quality.oeko.desc },
+    { icon: Recycle, title: t.quality.grs.title, desc: t.quality.grs.desc },
   ];
 
   // Certifications structured data
@@ -21,8 +23,8 @@ export default function Quality() {
     '@type': 'WebPage',
     name: language === 'it' ? 'Qualità Certificata' : 'Certified Quality',
     description: language === 'it'
-      ? 'Eurotex: qualità certificata ISO 9001 e Oeko-Tex'
-      : 'Eurotex: ISO 9001 and Oeko-Tex certified quality',
+      ? 'Eurotex: qualità certificata ISO 9001, Oeko-Tex e GRS'
+      : 'Eurotex: ISO 9001, Oeko-Tex and GRS certified quality',
     mainEntity: {
       '@type': 'ItemList',
       itemListElement: [
@@ -44,6 +46,15 @@ export default function Quality() {
             issuedBy: 'OEKO-TEX',
           },
         },
+        {
+          '@type': 'ListItem',
+          position: 3,
+          item: {
+            '@type': 'Certification',
+            name: 'Global Recycled Standard (GRS)',
+            issuedBy: 'Textile Exchange',
+          },
+        },
       ],
     },
   };
@@ -55,8 +66,8 @@ export default function Quality() {
         <meta
           name="description"
           content={language === 'it'
-            ? 'Eurotex: qualità certificata ISO 9001 e Oeko-Tex. Nastri tecnici sicuri, sostenibili e innovativi, 100% Made in Italy.'
-            : 'Eurotex: ISO 9001 and Oeko-Tex certified quality. Safe, sustainable and innovative technical webbings, 100% Made in Italy.'
+            ? 'Eurotex: qualità certificata ISO 9001, Oeko-Tex e GRS. Nastri tecnici sicuri, sostenibili e innovativi, 100% Made in Italy.'
+            : 'Eurotex: ISO 9001, Oeko-Tex and GRS certified quality. Safe, sustainable and innovative technical webbings, 100% Made in Italy.'
           }
         />
         <link rel="canonical" href={`${baseUrl}/quality`} />
@@ -88,7 +99,7 @@ export default function Quality() {
       {/* Quality Cards */}
       <section className="py-16 bg-secondary/30">
         <div className="section-container">
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {qualityItems.map((item, index) => (
               <div
                 key={item.title}
@@ -121,6 +132,11 @@ export default function Quality() {
               src={oekotexLogo} 
               alt="OEKO-TEX Standard 100" 
               className="h-28 md:h-32 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity"
+            />
+            <img 
+              src={grsLogo} 
+              alt="Global Recycled Standard (GRS)" 
+              className="h-24 md:h-28 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity"
             />
           </div>
         </div>
