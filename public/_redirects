@@ -1,6 +1,3 @@
-# Redirect non-www to www
-https://eurotexnastri.com/*  https://www.eurotexnastri.com/:splat  301!
-
 # Normalize trailing slashes
 /about/       /about       301
 /products/    /products    301
