@@ -2,5 +2,22 @@
 /index.html    /    301
 /sectors/military    /sectors/defense    301
 
+# Normalize trailing slashes (redirect /path/ to /path)
+/about/    /about    301
+/products/    /products    301
+/sectors/    /sectors    301
+/quality/    /quality    301
+/contact/    /contact    301
+/privacy/    /privacy    301
+/sectors/apparel-fashion/    /sectors/apparel-fashion    301
+/sectors/early-childhood/    /sectors/early-childhood    301
+/sectors/furniture/    /sectors/furniture    301
+/sectors/industrial-lifting-transport/    /sectors/industrial-lifting-transport    301
+/sectors/medical-orthopedics/    /sectors/medical-orthopedics    301
+/sectors/defense/    /sectors/defense    301
+/sectors/personal-protection/    /sectors/personal-protection    301
+/sectors/safety-belts/    /sectors/safety-belts    301
+/sectors/sport-outdoor/    /sectors/sport-outdoor    301
+
 # SPA fallback
 /*    /index.html   200
