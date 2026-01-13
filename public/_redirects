@@ -1,2 +1,6 @@
+# Redirect legacy/duplicate URLs
+/index.html    /    301
+/sectors/military    /sectors/defense    301
+
 # SPA fallback
 /*    /index.html   200
