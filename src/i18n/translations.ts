@@ -130,6 +130,10 @@ export const translations = {
         title: 'Oeko-Tex® Certified',
         desc: 'Our textiles are tested and certified to be free from harmful substances, guaranteeing safety for people and respect for the environment.',
       },
+      grs: {
+        title: 'GRS Certified',
+        desc: 'Our Global Recycled Standard certification ensures traceability and responsible production of recycled content in our sustainable textile solutions.',
+      },
       excellence: {
         title: 'Commitment to Excellence',
         desc: 'Quality, sustainability, and responsibility are at the heart of our production philosophy.',
@@ -441,6 +445,10 @@ export const translations = {
       oeko: {
         title: 'Certificazione Oeko-Tex®',
         desc: 'I nostri tessuti sono testati e certificati privi di sostanze nocive, a tutela della salute delle persone e dell\'ambiente.',
+      },
+      grs: {
+        title: 'Certificazione GRS',
+        desc: 'La nostra certificazione Global Recycled Standard garantisce tracciabilità e produzione responsabile di contenuti riciclati nelle nostre soluzioni tessili sostenibili.',
       },
       excellence: {
         title: 'Impegno per l\'Eccellenza',
