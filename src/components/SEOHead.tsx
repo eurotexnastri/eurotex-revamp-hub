@@ -37,7 +37,7 @@ export function generateOrganizationSchema() {
     url: 'https://www.eurotexnastri.com',
     logo: 'https://www.eurotexnastri.com/logo.png',
     description: 'Italian manufacturer of premium textile webbings and narrow fabrics for industrial, fashion, safety, and technical applications.',
-    foundingDate: '1974',
+    foundingDate: '1973',
     vatID: 'IT09835600157',
     address: {
       '@type': 'PostalAddress',

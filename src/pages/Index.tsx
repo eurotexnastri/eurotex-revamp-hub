@@ -99,12 +99,12 @@ export default function Index() {
   return (
     <>
       <Helmet>
-        <title>{language === 'it' ? 'Eurotex - Nastri Tecnici | 100% Made in Italy dal 1974' : 'Eurotex - Technical Webbing | 100% Made in Italy Since 1974'}</title>
+        <title>{language === 'it' ? 'Eurotex - Nastri Tecnici | 100% Made in Italy dal 1973' : 'Eurotex - Technical Webbing | 100% Made in Italy Since 1973'}</title>
         <meta
           name="description"
           content={language === 'it' 
-            ? 'Eurotex SRL - Produttore di nastri tecnici. 100% Made in Italy. Esperienza e tecnologia dal 1974. Nastri tessili premium per applicazioni industriali, moda, sicurezza e tecniche.'
-            : 'Eurotex SRL - Technical webbing manufacturer. 100% Made in Italy. Expertise and technology since 1974. Premium textile webbings for industrial, fashion, safety, and technical applications.'
+            ? 'Eurotex SRL - Produttore di nastri tecnici. 100% Made in Italy. Esperienza e tecnologia dal 1973. Nastri tessili premium per applicazioni industriali, moda, sicurezza e tecniche.'
+            : 'Eurotex SRL - Technical webbing manufacturer. 100% Made in Italy. Expertise and technology since 1973. Premium textile webbings for industrial, fashion, safety, and technical applications.'
           }
         />
         <meta
