@@ -67,7 +67,7 @@ export function generateWebSiteSchema() {
     name: 'Eurotex Nastri',
     description: 'Premium textile webbings and narrow fabrics manufacturer',
     publisher: {
-      '@id': 'https://www.eurotexnastri.it/#organization',
+      '@id': 'https://www.eurotexnastri.com/#organization',
     },
     inLanguage: ['en', 'it'],
   };
@@ -91,7 +91,7 @@ export function generateProductSchema(sector: {
       name: 'Eurotex',
     },
     manufacturer: {
-      '@id': 'https://www.eurotexnastri.it/#organization',
+      '@id': 'https://www.eurotexnastri.com/#organization',
     },
     category: 'Textile Webbings',
     material: 'Textile',
