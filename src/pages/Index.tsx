@@ -114,13 +114,13 @@ export default function Index() {
             : 'technical webbing, textile webbings, narrow fabrics, industrial tapes, fashion webbings, safety belts, lifting straps, Italian manufacturer, made in Italy'
           }
         />
-        <link rel="canonical" href={baseUrl} />
-        <link rel="alternate" hrefLang="en" href={baseUrl} />
-        <link rel="alternate" hrefLang="it" href={baseUrl} />
-        <link rel="alternate" hrefLang="x-default" href={baseUrl} />
+        <link rel="canonical" href={`${baseUrl}/`} />
+        <link rel="alternate" hrefLang="en" href={`${baseUrl}/`} />
+        <link rel="alternate" hrefLang="it" href={`${baseUrl}/`} />
+        <link rel="alternate" hrefLang="x-default" href={`${baseUrl}/`} />
         <meta property="og:locale" content={language === 'it' ? 'it_IT' : 'en_US'} />
         <meta property="og:locale:alternate" content={language === 'it' ? 'en_US' : 'it_IT'} />
-        <meta property="og:url" content={baseUrl} />
+        <meta property="og:url" content={`${baseUrl}/`} />
         <script type="application/ld+json">
           {JSON.stringify(generateOrganizationSchema())}
         </script>
