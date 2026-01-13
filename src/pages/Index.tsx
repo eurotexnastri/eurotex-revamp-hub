@@ -94,7 +94,7 @@ export default function Index() {
     t.home.sectorNames.industrial,
   ];
 
-  const baseUrl = 'https://www.eurotexnastri.it';
+  const baseUrl = 'https://www.eurotexnastri.com';
 
   return (
     <>

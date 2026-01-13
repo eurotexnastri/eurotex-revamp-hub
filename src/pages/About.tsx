@@ -19,7 +19,7 @@ const factoryImages = [
 
 export default function About() {
   const { t, language } = useLanguage();
-  const baseUrl = 'https://www.eurotexnastri.it';
+  const baseUrl = 'https://www.eurotexnastri.com';
   const [factoryEmblaRef, factoryEmblaApi] = useEmblaCarousel({ loop: true });
   const [factorySelectedIndex, setFactorySelectedIndex] = useState(0);
 

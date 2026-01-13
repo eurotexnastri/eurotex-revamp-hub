@@ -13,5 +13,5 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://www.eurotexnastri.it/sitemap.xml
+Sitemap: https://www.eurotexnastri.com/sitemap.xml
 Allow: /

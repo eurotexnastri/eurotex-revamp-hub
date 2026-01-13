@@ -44,7 +44,7 @@ type ContactFormData = z.infer<ReturnType<typeof createContactSchema>>;
 
 export default function Contact() {
   const { t, language } = useLanguage();
-  const baseUrl = 'https://www.eurotexnastri.it';
+  const baseUrl = 'https://www.eurotexnastri.com';
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 

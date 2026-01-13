@@ -26,7 +26,7 @@ const productImages = [
 
 export default function Products() {
   const { t, language } = useLanguage();
-  const baseUrl = 'https://www.eurotexnastri.it';
+  const baseUrl = 'https://www.eurotexnastri.com';
 
   const processSteps = [
     { number: '01', title: t.products.steps.weaving, id: 'weaving' },

@@ -10,7 +10,7 @@ export default function SectorDetail() {
   const { slug } = useParams<{ slug: string }>();
   const sector = slug ? getSectorBySlug(slug) : null;
   const { t, language } = useLanguage();
-  const baseUrl = 'https://www.eurotexnastri.it';
+  const baseUrl = 'https://www.eurotexnastri.com';
 
   if (!sector) {
     return (
